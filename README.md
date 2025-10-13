@@ -82,8 +82,8 @@ api.version.request=true
 Run the DeepStream app with your config file:
 
 ```bash
-cd /opt/nvidia/deepstream/deepstream/sources/apps/sample_apps/deepstream-test5
-./deepstream-test5-app -c configs/test5_config_file_src_infer.yml
+cd ~/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5
+./deepstream-test5-app -c configs/copy_test5_config_file_src_infer.yml
 ```
 
 DeepStream will now publish inference results (object detections, metadata) to the Kafka topic.
