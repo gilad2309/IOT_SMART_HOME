@@ -36,6 +36,8 @@
 #include <termios.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
 
 #include "gstnvdsmeta.h"
 #include "nvdsmeta_schema.h"
@@ -159,6 +161,50 @@ static AppConfigAnalyticsModel model_used = APP_CONFIG_ANALYTICS_MODELS_UNKNOWN;
 
 static struct timeval ota_request_time;
 static struct timeval ota_completion_time;
+
+/* Person count publishing over UDP (to be bridged to MQTT). */
+#define PERSON_CLASS_ID 0
+#define PERSON_COUNT_UDP_PORT 50052
+static int person_count_sock = -1;
+static struct sockaddr_in person_count_addr;
+
+static void
+init_person_count_socket (void)
+{
+  if (person_count_sock != -1)
+    return;
+  person_count_sock = socket (AF_INET, SOCK_DGRAM, 0);
+  if (person_count_sock < 0) {
+    g_printerr ("[person_count] failed to create UDP socket: %s\n", strerror (errno));
+    return;
+  }
+  memset (&person_count_addr, 0, sizeof (person_count_addr));
+  person_count_addr.sin_family = AF_INET;
+  person_count_addr.sin_port = htons (PERSON_COUNT_UDP_PORT);
+  person_count_addr.sin_addr.s_addr = htonl (INADDR_LOOPBACK); /* 127.0.0.1 */
+}
+
+static void
+publish_person_count (guint count, guint stream_id)
+{
+  if (person_count_sock == -1)
+    init_person_count_socket ();
+  if (person_count_sock < 0)
+    return;
+
+  gchar payload[128];
+  gint64 now_ms = g_get_real_time () / 1000;
+  gint len = g_snprintf (payload, sizeof (payload),
+      "{\"type\":\"person_count\",\"count\":%u,\"stream_id\":%u,\"ts\":%" G_GINT64_FORMAT "}",
+      count, stream_id, now_ms);
+  if (len > 0) {
+    sendto (person_count_sock, payload, len, 0,
+        (struct sockaddr *) &person_count_addr, sizeof (person_count_addr));
+    if (count > 0) {
+      g_print ("[person_count] stream %u count=%u\n", stream_id, count);
+    }
+  }
+}
 
 typedef struct _OTAInfo
 {
@@ -597,6 +643,7 @@ bbox_generated_probe_after_analytics (AppCtx * appCtx, GstBuffer * buf,
       l_frame = l_frame->next) {
     NvDsFrameMeta *frame_meta = (NvDsFrameMeta *) l_frame->data;
     stream_id = frame_meta->source_id;
+    guint person_count = 0;
     GstClockTime buf_ntp_time = 0;
     if (playback_utc == FALSE) {
       /** Calculate the buffer-NTP-time
@@ -618,6 +665,9 @@ bbox_generated_probe_after_analytics (AppCtx * appCtx, GstBuffer * buf,
        * be displayed on top of the bounding box, so lets form it here. */
 
       obj_meta = (NvDsObjectMeta *) (l->data);
+      if (obj_meta->class_id == PERSON_CLASS_ID) {
+        person_count++;
+      }
 
       {
         /**
@@ -688,6 +738,7 @@ bbox_generated_probe_after_analytics (AppCtx * appCtx, GstBuffer * buf,
       }
     }
     testAppCtx->streams[stream_id].frameCount++;
+    publish_person_count (person_count, stream_id);
   }
 }
 
