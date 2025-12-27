@@ -72,6 +72,16 @@ sink2:
   output-file: out.mp4
   source-id: 0
 
+sink3:
+  enable: 1
+  # RTSP output for MediaMTX/WebRTC bridge (H264 over UDP on 5400, RTSP port 8554)
+  type: 4
+  codec: 1
+  bitrate: 4000000
+  rtsp-port: 8554
+  udp-port: 5400
+  sync: 0
+
 # sink type = 6 by default creates msg converter + broker.
 # To use multiple brokers use this group for converter and use
 # sink type = 6 with disable-msgconv :  1

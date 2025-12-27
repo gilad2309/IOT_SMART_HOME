@@ -1,0 +1,12 @@
+{
+  "name": "ds-webrtc-signaling",
+  "version": "1.0.0",
+  "description": "Simple signaling server for DeepStream WebRTC",
+  "main": "signaling_server.js",
+  "scripts": {
+    "start": "node signaling_server.js"
+  },
+  "dependencies": {
+    "ws": "^8.0.0"
+  }
+}

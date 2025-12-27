@@ -26,6 +26,22 @@ sync=0
 gpu-id=0
 nvbuf-memory-type=0
 
+[sink1]
+enable=1
+# RTSP out for MediaMTX/WebRTC bridge
+type=4
+codec=1          # 1=h264
+bitrate=4000000
+rtsp-port=8554
+udp-port=5400
+profile=0        # Baseline (no B-frames) for WebRTC compatibility
+iframeinterval=30
+enc-type=0       # prefer HW encoder; we now force B-frames off in HW path too
+sw-preset=1      # still used if HW falls back to SW
+sync=0
+gpu-id=0
+nvbuf-memory-type=0
+
 
 [osd]
 enable=1
@@ -44,7 +60,7 @@ nvbuf-memory-type=0
 
 [streammux]
 gpu-id=0
-live-source=0
+live-source=1
 batch-size=1
 batched-push-timeout=40000
 width=1920

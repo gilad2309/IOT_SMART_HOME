@@ -54,8 +54,8 @@ sink1:
   msg-conv-payload-type: 0
   msg-broker-proto-lib: /opt/nvidia/deepstream/deepstream/lib/libnvds_kafka_proto.so
   #Provide your msg-broker-conn-str here
-  msg-broker-conn-str: 192.168.68.107;9092;ds-test5
-  topic: ds-test5
+  msg-broker-conn-str: 192.168.68.107;9092;ds-events
+  topic: ds-events
   #Optional:
   #msg-broker-config: ../../deepstream-test4/cfg_kafka.txt
 
