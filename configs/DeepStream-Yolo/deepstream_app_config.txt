@@ -20,11 +20,12 @@ gpu-id=0
 cudadec-memtype=0
 
 [sink0]
-enable=1
-type=2
-sync=0
-gpu-id=0
-nvbuf-memory-type=0
+enable=0
+# type=2 (EGL display) was showing a window; disable to prevent GUI pop-up.
+# type=2
+# sync=0
+# gpu-id=0
+# nvbuf-memory-type=0
 
 [sink1]
 enable=1

@@ -10,10 +10,18 @@
         video { display: block; }
         h1 { margin-bottom: 2rem; }
         #person-overlay { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.7); color: #0f0; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 16px; z-index: 10; pointer-events: none; }
+        #controls { margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: center; }
+        button { padding: 0.6rem 1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; background: #00aa00; color: white; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #status { font-size: 0.9rem; color: #ccc; }
     </style>
 </head>
 <body>
     <h1>DeepStream Live Inference</h1>
+    <div id="controls">
+        <button id="start-btn">Start Pipeline</button>
+        <span id="status"></span>
+    </div>
     <div id="video-container">
         <video id="webrtc-video" autoplay playsinline></video>
         <div id="person-overlay">Persons: 0</div>

@@ -1,7 +1,13 @@
 
-window.onload = async () => {
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function connectStreams() {
     const videoElement = document.getElementById('webrtc-video');
     const personOverlay = document.getElementById('person-overlay');
+    if (!videoElement || !personOverlay) return;
+
     // The media server exposes different streams as "paths". We match the one from DeepStream.
     // The /whep endpoint is the standard for WebRTC HTTP Egress Protocol.
     const mediaServerUrl = 'http://localhost:8889/ds-test/whep'; 
@@ -38,35 +44,78 @@ window.onload = async () => {
         console.error('MQTT init failed:', e);
     }
 
-    try {
-        console.log('Connecting to media server to get WebRTC stream');
-        const pc = new RTCPeerConnection();
+    console.log('Connecting to media server to get WebRTC stream');
+    const pc = new RTCPeerConnection();
 
-        pc.ontrack = (event) => {
-            console.log('Track received, attaching to video element.');
-            videoElement.srcObject = event.streams[0];
-        };
+    pc.ontrack = (event) => {
+        console.log('Track received, attaching to video element.');
+        videoElement.srcObject = event.streams[0];
+    };
 
-        // This tells the peer connection we only want to receive video.
-        pc.addTransceiver('video', {'direction': 'recvonly'});
-        
-        const offer = await pc.createOffer();
-        await pc.setLocalDescription(offer);
+    // This tells the peer connection we only want to receive video.
+    pc.addTransceiver('video', {'direction': 'recvonly'});
+    
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
 
-        // Send the offer to the media server.
-        const res = await fetch(mediaServerUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/sdp' }, // The server expects SDP content type
-            body: offer.sdp,
-        });
+    // Send the offer to the media server.
+    const res = await fetch(mediaServerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/sdp' }, // The server expects SDP content type
+        body: offer.sdp,
+    });
 
-        // The server replies with its own SDP answer.
-        const answerSdp = await res.text();
-        await pc.setRemoteDescription(new RTCSessionDescription({type: 'answer', sdp: answerSdp}));
-        console.log('WebRTC connection established');
+    // The server replies with its own SDP answer.
+    const answerSdp = await res.text();
+    await pc.setRemoteDescription(new RTCSessionDescription({type: 'answer', sdp: answerSdp}));
+    console.log('WebRTC connection established');
+}
 
-    } catch (err) {
-        console.error('Failed to connect to WebRTC stream:', err);
-        alert('Failed to connect to video stream. Make sure the media server and DeepStream app are running.');
+let starting = false;
+
+async function connectWithRetry(retries = 3, backoffMs = 2000) {
+    let lastErr;
+    for (let i = 0; i < retries; i++) {
+        try {
+            await connectStreams();
+            return;
+        } catch (err) {
+            lastErr = err;
+            console.warn(`Connect attempt ${i + 1} failed, retrying in ${backoffMs}ms`, err);
+            await delay(backoffMs);
+        }
     }
-};
+    throw lastErr;
+}
+
+async function startPipeline() {
+    const startBtn = document.getElementById('start-btn');
+    const statusLabel = document.getElementById('status');
+    if (!startBtn || !statusLabel) return;
+    if (starting) return;
+    starting = true;
+    startBtn.disabled = true;
+    statusLabel.textContent = 'Starting services...';
+    try {
+        const res = await fetch('/api/start', { method: 'POST' });
+        if (!res.ok) throw new Error(`Start failed: ${res.status}`);
+        statusLabel.textContent = 'Services starting...';
+        await delay(3000); // give MediaMTX/DeepStream a moment to come up
+        await connectWithRetry(3, 2000);
+        statusLabel.textContent = 'Streaming';
+    } catch (err) {
+        console.error('Start pipeline failed', err);
+        statusLabel.textContent = 'Start failed. Check logs and retry.';
+        alert('Failed to start pipeline. Check server logs or run services manually.');
+        startBtn.disabled = false;
+    } finally {
+        starting = false;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', startPipeline);
+    }
+});

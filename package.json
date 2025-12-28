@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node signaling_server.js",
     "person-mqtt": "node person_mqtt_bridge.js",
-    "mqtt-broker": "node mqtt_broker.js"
+    "mqtt-broker": "node mqtt_broker.js",
+    "serve": "node server.js"
   },
   "dependencies": {
     "ws": "^8.0.0",
