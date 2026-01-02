@@ -10,6 +10,7 @@ const net = require('net');
 const { spawn } = require('child_process');
 
 const ROOT = __dirname;
+const UI_ROOT = path.join(ROOT, 'web-ui', 'dist');
 const LOG_DIR = path.join(ROOT, 'logs');
 const PORT = 8081;
 
@@ -85,6 +86,7 @@ function handleStatus(req, res) {
 }
 
 routes.set('POST /api/start', handleStart);
+routes.set('POST /api/stop', handleStop);
 routes.set('GET /api/status', handleStatus);
 
 function waitForPort(port, host, timeoutMs) {
@@ -117,26 +119,45 @@ function waitForPort(port, host, timeoutMs) {
   });
 }
 
+function stopProcess(name) {
+  const proc = processes[name];
+  if (!proc) return { status: 'not_running' };
+  proc.kill('SIGTERM');
+  delete processes[name];
+  return { status: 'stopped' };
+}
+
+function handleStop(req, res) {
+  const stopped = {
+    deepstream: stopProcess('deepstream'),
+    mediamtx: stopProcess('mediamtx'),
+    mqtt_bridge: stopProcess('mqtt_bridge')
+  };
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ ok: true, stopped }));
+}
+
 function serveStatic(req, res) {
   let pathname = req.url.split('?')[0];
-  if (pathname === '/') pathname = '/index.html';
-  const filePath = path.join(ROOT, pathname);
-  if (!filePath.startsWith(ROOT)) {
-    res.writeHead(403);
-    res.end('Forbidden');
-    return;
-  }
-  fs.stat(filePath, (err, stat) => {
-    if (err || !stat.isFile()) {
-      res.writeHead(404);
-      res.end('Not found');
+  if (pathname === '/') pathname = 'index.html';
+  const requestPath = pathname.replace(/^\/+/, '');
+  const roots = [UI_ROOT, ROOT];
+
+  for (const base of roots) {
+    const filePath = path.join(base, requestPath);
+    const resolved = path.resolve(filePath);
+    if (!resolved.startsWith(base)) continue; // path traversal guard
+    if (fs.existsSync(resolved) && fs.statSync(resolved).isFile()) {
+      const ext = path.extname(resolved).toLowerCase();
+      const ct = mime[ext] || 'application/octet-stream';
+      res.writeHead(200, { 'Content-Type': ct });
+      fs.createReadStream(resolved).pipe(res);
       return;
     }
-    const ext = path.extname(filePath).toLowerCase();
-    const ct = mime[ext] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': ct });
-    fs.createReadStream(filePath).pipe(res);
-  });
+  }
+
+  res.writeHead(404);
+  res.end('Not found');
 }
 
 const server = http.createServer((req, res) => {
@@ -148,7 +169,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`Local server running on http://127.0.0.1:${PORT}`);
-  console.log(`Serving static files from ${ROOT}`);
+  console.log(`Serving static files from ${UI_ROOT} (then ${ROOT} fallback)`);
   console.log('Endpoints: POST /api/start, GET /api/status');
 });
 

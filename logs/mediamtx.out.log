@@ -206,3 +206,830 @@
 2025/12/28 19:59:34 INF [WebRTC] [session 1953cccf] closed: peer connection closed
 2025/12/28 20:05:29 WAR [path ds-test] [RTSP source] 6 RTP packets lost
 2025/12/28 20:09:19 WAR [path ds-test] [RTSP source] 10 RTP packets lost
+2026/01/02 15:23:01 INF MediaMTX v1.15.5
+2026/01/02 15:23:01 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 15:23:01 INF [path ds-test] [RTSP source] started
+2026/01/02 15:23:01 INF [RTMP] listener opened on :1935
+2026/01/02 15:23:01 INF [HLS] listener opened on :8888
+2026/01/02 15:23:01 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 15:23:01 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 15:23:03 INF [WebRTC] [session 31ef414e] created by 127.0.0.1:35014
+2026/01/02 15:23:03 INF [WebRTC] [session 31ef414e] closed: no stream is available on path 'ds-test'
+2026/01/02 15:23:04 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 15:23:05 INF [WebRTC] [session 37a7651a] created by 127.0.0.1:35014
+2026/01/02 15:23:06 INF [WebRTC] [session 37a7651a] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: prflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/36820
+2026/01/02 15:23:06 INF [WebRTC] [session 37a7651a] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 15:23:57 WAR [path ds-test] 5 processing errors
+2026/01/02 15:23:57 WAR [path ds-test] [RTSP source] 3 RTP packets lost
+2026/01/02 15:24:38 INF [WebRTC] [session 37a7651a] closed: peer connection closed
+2026/01/02 15:24:42 INF shutting down gracefully
+2026/01/02 15:24:42 INF [SRT] listener is closing
+2026/01/02 15:24:42 INF [WebRTC] listener is closing
+2026/01/02 15:24:42 INF [HLS] listener is closing
+2026/01/02 15:24:42 INF [RTMP] listener is closing
+2026/01/02 15:24:42 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 15:24:42 INF waiting for running hooks
+2026/01/02 15:24:58 INF MediaMTX v1.15.5
+2026/01/02 15:24:58 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 15:24:58 INF [path ds-test] [RTSP source] started
+2026/01/02 15:24:58 INF [RTMP] listener opened on :1935
+2026/01/02 15:24:58 INF [HLS] listener opened on :8888
+2026/01/02 15:24:58 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 15:24:58 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 15:25:01 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 15:25:01 INF [WebRTC] [session ac82621c] created by 127.0.0.1:59506
+2026/01/02 15:25:02 INF [WebRTC] [session ac82621c] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: prflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/49190
+2026/01/02 15:25:02 INF [WebRTC] [session ac82621c] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 15:25:23 INF shutting down gracefully
+2026/01/02 15:25:23 INF [SRT] listener is closing
+2026/01/02 15:25:23 INF [WebRTC] listener is closing
+2026/01/02 15:25:23 INF [WebRTC] [session ac82621c] closed: terminated
+2026/01/02 15:25:23 INF [HLS] listener is closing
+2026/01/02 15:25:23 INF [RTMP] listener is closing
+2026/01/02 15:25:23 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 15:25:23 INF waiting for running hooks
+2026/01/02 15:40:27 INF MediaMTX v1.15.5
+2026/01/02 15:40:27 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 15:40:27 INF [path ds-test] [RTSP source] started
+2026/01/02 15:40:27 INF [RTMP] listener opened on :1935
+2026/01/02 15:40:27 INF [HLS] listener opened on :8888
+2026/01/02 15:40:27 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 15:40:27 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 15:40:30 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 15:40:31 INF [WebRTC] [session e74b775b] created by 127.0.0.1:39726
+2026/01/02 15:40:31 INF [WebRTC] [session e74b775b] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: prflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/46258
+2026/01/02 15:40:31 INF [WebRTC] [session e74b775b] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 15:40:39 INF [WebRTC] [session e74b775b] closed: peer connection closed
+2026/01/02 15:40:53 INF shutting down gracefully
+2026/01/02 15:40:53 INF [SRT] listener is closing
+2026/01/02 15:40:53 INF [WebRTC] listener is closing
+2026/01/02 15:40:53 INF [HLS] listener is closing
+2026/01/02 15:40:53 INF [RTMP] listener is closing
+2026/01/02 15:40:53 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 15:40:53 INF waiting for running hooks
+2026/01/02 15:41:11 INF MediaMTX v1.15.5
+2026/01/02 15:41:11 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 15:41:11 INF [path ds-test] [RTSP source] started
+2026/01/02 15:41:11 INF [RTMP] listener opened on :1935
+2026/01/02 15:41:11 INF [HLS] listener opened on :8888
+2026/01/02 15:41:11 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 15:41:11 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 15:41:13 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 15:41:14 INF [WebRTC] [session eab3ecf5] created by 127.0.0.1:46916
+2026/01/02 15:41:15 INF [WebRTC] [session eab3ecf5] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: prflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/57109
+2026/01/02 15:41:15 INF [WebRTC] [session eab3ecf5] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 15:41:20 INF [WebRTC] [session eab3ecf5] closed: peer connection closed
+2026/01/02 15:41:22 INF shutting down gracefully
+2026/01/02 15:41:22 INF [SRT] listener is closing
+2026/01/02 15:41:22 INF [WebRTC] listener is closing
+2026/01/02 15:41:22 INF [HLS] listener is closing
+2026/01/02 15:41:22 INF [RTMP] listener is closing
+2026/01/02 15:41:22 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 15:41:22 INF waiting for running hooks
+2026/01/02 16:02:17 INF MediaMTX v1.15.5
+2026/01/02 16:02:17 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:02:17 INF [path ds-test] [RTSP source] started
+2026/01/02 16:02:17 INF [RTMP] listener opened on :1935
+2026/01/02 16:02:17 INF [HLS] listener opened on :8888
+2026/01/02 16:02:17 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:02:17 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:02:20 INF [WebRTC] [session bb3ff3a4] created by 127.0.0.1:37074
+2026/01/02 16:02:20 INF [WebRTC] [session bb3ff3a4] closed: no stream is available on path 'ds-test'
+2026/01/02 16:02:21 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:02:22 INF [WebRTC] [session d1d67348] created by 127.0.0.1:37074
+2026/01/02 16:02:22 INF [WebRTC] [session d1d67348] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: prflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/37485
+2026/01/02 16:02:22 INF [WebRTC] [session d1d67348] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:02:22 WAR [path ds-test] [RTSP source] 2 RTP packets lost
+2026/01/02 16:02:42 INF [WebRTC] [session d1d67348] closed: peer connection closed
+2026/01/02 16:02:47 INF shutting down gracefully
+2026/01/02 16:02:47 INF [SRT] listener is closing
+2026/01/02 16:02:47 INF [WebRTC] listener is closing
+2026/01/02 16:02:47 INF [HLS] listener is closing
+2026/01/02 16:02:47 INF [RTMP] listener is closing
+2026/01/02 16:02:47 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:02:47 INF waiting for running hooks
+2026/01/02 16:05:53 INF MediaMTX v1.15.5
+2026/01/02 16:05:53 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:05:53 INF [path ds-test] [RTSP source] started
+2026/01/02 16:05:53 INF [RTMP] listener opened on :1935
+2026/01/02 16:05:53 INF [HLS] listener opened on :8888
+2026/01/02 16:05:53 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:05:53 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:05:54 INF [WebRTC] [session 31a65e3d] created by 127.0.0.1:39588
+2026/01/02 16:05:54 INF [WebRTC] [session 31a65e3d] closed: no stream is available on path 'ds-test'
+2026/01/02 16:05:56 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:05:56 INF [WebRTC] [session 3f3a309d] created by 127.0.0.1:39588
+2026/01/02 16:05:57 WAR [path ds-test] [RTSP source] 5 RTP packets lost
+2026/01/02 16:05:57 INF [WebRTC] [session 3f3a309d] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/34729
+2026/01/02 16:05:57 INF [WebRTC] [session 3f3a309d] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:06:03 INF [WebRTC] [session 3f3a309d] closed: peer connection closed
+2026/01/02 16:06:06 INF [WebRTC] [session 6b633126] created by 127.0.0.1:39588
+2026/01/02 16:06:07 INF [WebRTC] [session 6b633126] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/50340
+2026/01/02 16:06:07 INF [WebRTC] [session 6b633126] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:07:17 INF [WebRTC] [session 6b633126] closed: peer connection closed
+2026/01/02 16:07:18 INF [WebRTC] [session e8de1c8b] created by 127.0.0.1:54646
+2026/01/02 16:07:19 INF [WebRTC] [session e8de1c8b] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/33424
+2026/01/02 16:07:19 INF [WebRTC] [session e8de1c8b] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:07:22 INF [WebRTC] [session e8de1c8b] closed: peer connection closed
+2026/01/02 16:07:24 INF [WebRTC] [session 9947ee4c] created by 127.0.0.1:54646
+2026/01/02 16:07:24 INF [WebRTC] [session 9947ee4c] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/60222
+2026/01/02 16:07:24 INF [WebRTC] [session 9947ee4c] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:08:27 INF [WebRTC] [session 9947ee4c] closed: peer connection closed
+2026/01/02 16:08:27 INF [WebRTC] [session 77f14b62] created by 127.0.0.1:49960
+2026/01/02 16:08:27 INF [WebRTC] [session 77f14b62] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/33042
+2026/01/02 16:08:27 INF [WebRTC] [session 77f14b62] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:08:30 INF [WebRTC] [session 77f14b62] closed: peer connection closed
+2026/01/02 16:08:30 INF [WebRTC] [session 300d75e6] created by 127.0.0.1:49960
+2026/01/02 16:08:31 INF [WebRTC] [session 300d75e6] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/44591
+2026/01/02 16:08:31 INF [WebRTC] [session 300d75e6] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:08:36 WAR [path ds-test] [RTSP source] 7 RTP packets lost
+2026/01/02 16:08:36 INF [WebRTC] [session 300d75e6] closed: peer connection closed
+2026/01/02 16:08:40 WAR [path ds-test] [RTSP source] 21 RTP packets lost
+2026/01/02 16:08:42 INF shutting down gracefully
+2026/01/02 16:08:42 INF [SRT] listener is closing
+2026/01/02 16:08:42 INF [WebRTC] listener is closing
+2026/01/02 16:08:42 INF [HLS] listener is closing
+2026/01/02 16:08:42 INF [RTMP] listener is closing
+2026/01/02 16:08:42 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:08:42 INF waiting for running hooks
+2026/01/02 16:08:49 INF MediaMTX v1.15.5
+2026/01/02 16:08:49 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:08:49 INF [path ds-test] [RTSP source] started
+2026/01/02 16:08:49 INF [RTMP] listener opened on :1935
+2026/01/02 16:08:49 INF [HLS] listener opened on :8888
+2026/01/02 16:08:49 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:08:49 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:08:51 INF [WebRTC] [session c9c0cec2] created by 127.0.0.1:55754
+2026/01/02 16:08:51 INF [WebRTC] [session c9c0cec2] closed: no stream is available on path 'ds-test'
+2026/01/02 16:08:52 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:08:53 INF [WebRTC] [session a43cd7cf] created by 127.0.0.1:55754
+2026/01/02 16:08:53 INF [WebRTC] [session a43cd7cf] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/56302
+2026/01/02 16:08:53 INF [WebRTC] [session a43cd7cf] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:09:00 INF [WebRTC] [session a43cd7cf] closed: peer connection closed
+2026/01/02 16:09:02 INF [WebRTC] [session e230f29e] created by 127.0.0.1:55754
+2026/01/02 16:09:04 INF [WebRTC] [session e230f29e] peer connection established, local candidate: host/udp/fe80::f528:b0dd:fe80:5998/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/60407
+2026/01/02 16:09:04 INF [WebRTC] [session e230f29e] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:09:18 INF shutting down gracefully
+2026/01/02 16:09:18 INF [SRT] listener is closing
+2026/01/02 16:09:18 INF [WebRTC] listener is closing
+2026/01/02 16:09:18 INF [WebRTC] [session e230f29e] closed: terminated
+2026/01/02 16:09:18 INF [HLS] listener is closing
+2026/01/02 16:09:18 INF [RTMP] listener is closing
+2026/01/02 16:09:18 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:09:18 INF waiting for running hooks
+2026/01/02 16:09:26 INF MediaMTX v1.15.5
+2026/01/02 16:09:26 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:09:26 INF [path ds-test] [RTSP source] started
+2026/01/02 16:09:26 INF [RTMP] listener opened on :1935
+2026/01/02 16:09:26 INF [HLS] listener opened on :8888
+2026/01/02 16:09:26 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:09:26 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:09:27 INF [WebRTC] [session d6edcf42] created by 127.0.0.1:43830
+2026/01/02 16:09:27 INF [WebRTC] [session d6edcf42] closed: no stream is available on path 'ds-test'
+2026/01/02 16:09:27 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:09:29 INF [WebRTC] [session 9e1fee5e] created by 127.0.0.1:43830
+2026/01/02 16:09:29 INF [WebRTC] [session 9e1fee5e] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/42857
+2026/01/02 16:09:29 INF [WebRTC] [session 9e1fee5e] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:09:35 INF shutting down gracefully
+2026/01/02 16:09:35 INF [SRT] listener is closing
+2026/01/02 16:09:35 INF [WebRTC] listener is closing
+2026/01/02 16:09:35 INF [WebRTC] [session 9e1fee5e] closed: terminated
+2026/01/02 16:09:35 INF [HLS] listener is closing
+2026/01/02 16:09:35 INF [RTMP] listener is closing
+2026/01/02 16:09:35 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:09:35 INF waiting for running hooks
+2026/01/02 16:10:19 INF MediaMTX v1.15.5
+2026/01/02 16:10:19 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:10:19 INF [path ds-test] [RTSP source] started
+2026/01/02 16:10:19 INF [RTMP] listener opened on :1935
+2026/01/02 16:10:19 INF [HLS] listener opened on :8888
+2026/01/02 16:10:19 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:10:19 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:10:19 INF [WebRTC] [session 3935bf84] created by 127.0.0.1:54966
+2026/01/02 16:10:19 INF [WebRTC] [session 3935bf84] closed: no stream is available on path 'ds-test'
+2026/01/02 16:10:20 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:10:21 INF [WebRTC] [session 3c3d9747] created by 127.0.0.1:54966
+2026/01/02 16:10:22 INF [WebRTC] [session 3c3d9747] peer connection established, local candidate: host/udp/fe80::f528:b0dd:fe80:5998/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/35230
+2026/01/02 16:10:22 INF [WebRTC] [session 3c3d9747] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:10:29 INF [WebRTC] [session 3c3d9747] closed: peer connection closed
+2026/01/02 16:10:31 INF [WebRTC] [session e42f537e] created by 127.0.0.1:54966
+2026/01/02 16:10:32 INF [WebRTC] [session e42f537e] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/44893
+2026/01/02 16:10:32 INF [WebRTC] [session e42f537e] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:10:39 INF shutting down gracefully
+2026/01/02 16:10:39 INF [SRT] listener is closing
+2026/01/02 16:10:39 INF [WebRTC] listener is closing
+2026/01/02 16:10:39 INF [WebRTC] [session e42f537e] closed: terminated
+2026/01/02 16:10:39 INF [HLS] listener is closing
+2026/01/02 16:10:39 INF [RTMP] listener is closing
+2026/01/02 16:10:39 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:10:39 INF waiting for running hooks
+2026/01/02 16:10:50 INF MediaMTX v1.15.5
+2026/01/02 16:10:50 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:10:50 INF [path ds-test] [RTSP source] started
+2026/01/02 16:10:50 INF [RTMP] listener opened on :1935
+2026/01/02 16:10:50 INF [HLS] listener opened on :8888
+2026/01/02 16:10:50 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:10:50 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:10:51 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:10:52 INF [WebRTC] [session 46d4a4a2] created by 127.0.0.1:36972
+2026/01/02 16:10:52 INF [WebRTC] [session 46d4a4a2] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/53180
+2026/01/02 16:10:52 INF [WebRTC] [session 46d4a4a2] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:11:00 INF [WebRTC] [session 46d4a4a2] closed: peer connection closed
+2026/01/02 16:11:01 INF [WebRTC] [session 7b922f0f] created by 127.0.0.1:36972
+2026/01/02 16:11:02 INF [WebRTC] [session 7b922f0f] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/47125
+2026/01/02 16:11:02 INF [WebRTC] [session 7b922f0f] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:13:15 WAR [path ds-test] 6 processing errors
+2026/01/02 16:13:16 WAR [path ds-test] [RTSP source] 8 RTP packets lost
+2026/01/02 16:13:26 WAR [path ds-test] [RTSP source] 9 RTP packets lost
+2026/01/02 16:13:28 WAR [path ds-test] [RTSP source] 15 RTP packets lost
+2026/01/02 16:13:31 WAR [path ds-test] [RTSP source] 2 RTP packets lost
+2026/01/02 16:14:30 INF [WebRTC] [session 7b922f0f] closed: peer connection closed
+2026/01/02 16:14:30 INF [WebRTC] [session 992bc61e] created by 127.0.0.1:41760
+2026/01/02 16:14:30 INF [WebRTC] [session 992bc61e] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/43110
+2026/01/02 16:14:30 INF [WebRTC] [session 992bc61e] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:14:31 INF shutting down gracefully
+2026/01/02 16:14:31 INF [SRT] listener is closing
+2026/01/02 16:14:31 INF [WebRTC] listener is closing
+2026/01/02 16:14:31 INF [WebRTC] [session 992bc61e] closed: terminated
+2026/01/02 16:14:31 INF [HLS] listener is closing
+2026/01/02 16:14:31 INF [RTMP] listener is closing
+2026/01/02 16:14:31 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:14:31 INF waiting for running hooks
+2026/01/02 16:14:41 INF MediaMTX v1.15.5
+2026/01/02 16:14:41 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:14:41 INF [path ds-test] [RTSP source] started
+2026/01/02 16:14:41 INF [RTMP] listener opened on :1935
+2026/01/02 16:14:41 INF [HLS] listener opened on :8888
+2026/01/02 16:14:41 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:14:41 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:14:42 INF [WebRTC] [session 17fcb8c5] created by 127.0.0.1:60828
+2026/01/02 16:14:42 INF [WebRTC] [session 17fcb8c5] closed: no stream is available on path 'ds-test'
+2026/01/02 16:14:43 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:14:44 INF [WebRTC] [session 96442573] created by 127.0.0.1:60828
+2026/01/02 16:14:45 INF [WebRTC] [session 96442573] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/44842
+2026/01/02 16:14:45 INF [WebRTC] [session 96442573] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:14:51 INF [WebRTC] [session 96442573] closed: peer connection closed
+2026/01/02 16:14:54 INF [WebRTC] [session 8f03ce22] created by 127.0.0.1:60828
+2026/01/02 16:14:54 INF [WebRTC] [session 8f03ce22] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/60484
+2026/01/02 16:14:54 INF [WebRTC] [session 8f03ce22] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:15:58 WAR [path ds-test] [RTSP source] 9 RTP packets lost
+2026/01/02 16:16:01 INF shutting down gracefully
+2026/01/02 16:16:01 INF [SRT] listener is closing
+2026/01/02 16:16:01 INF [WebRTC] listener is closing
+2026/01/02 16:16:01 INF [WebRTC] [session 8f03ce22] closed: terminated
+2026/01/02 16:16:01 INF [HLS] listener is closing
+2026/01/02 16:16:01 INF [RTMP] listener is closing
+2026/01/02 16:16:01 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:16:01 INF waiting for running hooks
+2026/01/02 16:16:03 INF MediaMTX v1.15.5
+2026/01/02 16:16:03 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:16:03 INF [path ds-test] [RTSP source] started
+2026/01/02 16:16:03 INF [RTMP] listener opened on :1935
+2026/01/02 16:16:03 INF [HLS] listener opened on :8888
+2026/01/02 16:16:03 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:16:03 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:16:03 INF [WebRTC] [session 5b03ce20] created by 127.0.0.1:37232
+2026/01/02 16:16:03 INF [WebRTC] [session 5b03ce20] closed: no stream is available on path 'ds-test'
+2026/01/02 16:16:04 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:16:05 INF [WebRTC] [session 24e5889e] created by 127.0.0.1:37232
+2026/01/02 16:16:06 INF [WebRTC] [session 24e5889e] peer connection established, local candidate: host/udp/fe80::f528:b0dd:fe80:5998/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/57897
+2026/01/02 16:16:06 INF [WebRTC] [session 24e5889e] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:16:13 INF [WebRTC] [session 24e5889e] closed: peer connection closed
+2026/01/02 16:16:15 INF [WebRTC] [session acb6e6ec] created by 127.0.0.1:37232
+2026/01/02 16:16:15 INF [WebRTC] [session acb6e6ec] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/33310
+2026/01/02 16:16:15 INF [WebRTC] [session acb6e6ec] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:17:27 INF shutting down gracefully
+2026/01/02 16:17:27 INF [SRT] listener is closing
+2026/01/02 16:17:27 INF [WebRTC] listener is closing
+2026/01/02 16:17:27 INF [WebRTC] [session acb6e6ec] closed: terminated
+2026/01/02 16:17:27 INF [HLS] listener is closing
+2026/01/02 16:17:27 INF [RTMP] listener is closing
+2026/01/02 16:17:27 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:17:27 INF waiting for running hooks
+2026/01/02 16:17:46 INF MediaMTX v1.15.5
+2026/01/02 16:17:46 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:17:46 INF [path ds-test] [RTSP source] started
+2026/01/02 16:17:46 INF [RTMP] listener opened on :1935
+2026/01/02 16:17:46 INF [HLS] listener opened on :8888
+2026/01/02 16:17:46 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:17:46 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:17:48 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:17:48 INF [WebRTC] [session ec46fb4d] created by 127.0.0.1:54944
+2026/01/02 16:17:49 INF [WebRTC] [session ec46fb4d] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/59113
+2026/01/02 16:17:49 INF [WebRTC] [session ec46fb4d] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:17:56 INF [WebRTC] [session ec46fb4d] closed: peer connection closed
+2026/01/02 16:17:57 INF [WebRTC] [session 21e54012] created by 127.0.0.1:54944
+2026/01/02 16:17:58 INF [WebRTC] [session 21e54012] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/40119
+2026/01/02 16:17:58 INF [WebRTC] [session 21e54012] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:18:09 INF shutting down gracefully
+2026/01/02 16:18:09 INF [SRT] listener is closing
+2026/01/02 16:18:09 INF [WebRTC] listener is closing
+2026/01/02 16:18:09 INF [WebRTC] [session 21e54012] closed: terminated
+2026/01/02 16:18:09 INF [HLS] listener is closing
+2026/01/02 16:18:09 INF [RTMP] listener is closing
+2026/01/02 16:18:09 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:18:09 INF waiting for running hooks
+2026/01/02 16:18:45 INF MediaMTX v1.15.5
+2026/01/02 16:18:45 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:18:45 INF [path ds-test] [RTSP source] started
+2026/01/02 16:18:45 INF [RTMP] listener opened on :1935
+2026/01/02 16:18:45 INF [HLS] listener opened on :8888
+2026/01/02 16:18:45 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:18:45 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:18:46 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:18:47 INF [WebRTC] [session 042111a0] created by 127.0.0.1:56132
+2026/01/02 16:18:48 INF [WebRTC] [session 042111a0] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/55127
+2026/01/02 16:18:48 INF [WebRTC] [session 042111a0] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:18:55 INF [WebRTC] [session 042111a0] closed: peer connection closed
+2026/01/02 16:18:57 INF [WebRTC] [session 2d5e20b3] created by 127.0.0.1:56132
+2026/01/02 16:18:57 INF [WebRTC] [session 2d5e20b3] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/59564
+2026/01/02 16:18:57 INF [WebRTC] [session 2d5e20b3] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:19:10 INF shutting down gracefully
+2026/01/02 16:19:10 INF [SRT] listener is closing
+2026/01/02 16:19:10 INF [WebRTC] listener is closing
+2026/01/02 16:19:10 INF [WebRTC] [session 2d5e20b3] closed: terminated
+2026/01/02 16:19:10 INF [HLS] listener is closing
+2026/01/02 16:19:10 INF [RTMP] listener is closing
+2026/01/02 16:19:10 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:19:10 INF waiting for running hooks
+2026/01/02 16:20:16 INF MediaMTX v1.15.5
+2026/01/02 16:20:16 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:20:16 INF [path ds-test] [RTSP source] started
+2026/01/02 16:20:16 INF [RTMP] listener opened on :1935
+2026/01/02 16:20:16 INF [HLS] listener opened on :8888
+2026/01/02 16:20:16 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:20:16 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:20:18 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:20:18 INF [WebRTC] [session e4a8c861] created by 127.0.0.1:56446
+2026/01/02 16:20:19 INF [WebRTC] [session e4a8c861] peer connection established, local candidate: host/udp/fe80::f528:b0dd:fe80:5998/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/34323
+2026/01/02 16:20:19 INF [WebRTC] [session e4a8c861] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:20:26 INF [WebRTC] [session e4a8c861] closed: peer connection closed
+2026/01/02 16:20:27 INF [WebRTC] [session 93e12adb] created by 127.0.0.1:56446
+2026/01/02 16:20:27 INF [WebRTC] [session 93e12adb] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/40338
+2026/01/02 16:20:27 INF [WebRTC] [session 93e12adb] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:21:34 INF shutting down gracefully
+2026/01/02 16:21:34 INF [SRT] listener is closing
+2026/01/02 16:21:34 INF [WebRTC] listener is closing
+2026/01/02 16:21:34 INF [WebRTC] [session 93e12adb] closed: terminated
+2026/01/02 16:21:34 INF [HLS] listener is closing
+2026/01/02 16:21:34 INF [RTMP] listener is closing
+2026/01/02 16:21:34 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:21:34 INF waiting for running hooks
+2026/01/02 16:24:27 INF MediaMTX v1.15.5
+2026/01/02 16:24:27 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:24:27 INF [path ds-test] [RTSP source] started
+2026/01/02 16:24:27 INF [RTMP] listener opened on :1935
+2026/01/02 16:24:27 INF [HLS] listener opened on :8888
+2026/01/02 16:24:27 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:24:27 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:24:28 INF [WebRTC] [session d4989d70] created by 127.0.0.1:38244
+2026/01/02 16:24:28 INF [WebRTC] [session d4989d70] closed: no stream is available on path 'ds-test'
+2026/01/02 16:24:29 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:24:30 INF [WebRTC] [session 08eecef2] created by 127.0.0.1:38244
+2026/01/02 16:24:31 INF [WebRTC] [session 08eecef2] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/47238
+2026/01/02 16:24:31 INF [WebRTC] [session 08eecef2] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:24:53 INF shutting down gracefully
+2026/01/02 16:24:53 INF [SRT] listener is closing
+2026/01/02 16:24:53 INF [WebRTC] listener is closing
+2026/01/02 16:24:53 INF [WebRTC] [session 08eecef2] closed: terminated
+2026/01/02 16:24:53 INF [HLS] listener is closing
+2026/01/02 16:24:53 INF [RTMP] listener is closing
+2026/01/02 16:24:53 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:24:53 INF waiting for running hooks
+2026/01/02 16:24:55 INF MediaMTX v1.15.5
+2026/01/02 16:24:55 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:24:55 INF [path ds-test] [RTSP source] started
+2026/01/02 16:24:55 INF [RTMP] listener opened on :1935
+2026/01/02 16:24:55 INF [HLS] listener opened on :8888
+2026/01/02 16:24:55 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:24:55 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:24:57 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:24:58 INF [WebRTC] [session c8828f6d] created by 127.0.0.1:33998
+2026/01/02 16:24:59 INF [WebRTC] [session c8828f6d] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/40963
+2026/01/02 16:24:59 INF [WebRTC] [session c8828f6d] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:25:01 INF shutting down gracefully
+2026/01/02 16:25:01 INF [SRT] listener is closing
+2026/01/02 16:25:01 INF [WebRTC] listener is closing
+2026/01/02 16:25:01 INF [WebRTC] [session c8828f6d] closed: terminated
+2026/01/02 16:25:01 INF [HLS] listener is closing
+2026/01/02 16:25:01 INF [RTMP] listener is closing
+2026/01/02 16:25:01 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:25:01 INF waiting for running hooks
+2026/01/02 16:25:02 INF MediaMTX v1.15.5
+2026/01/02 16:25:02 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:25:02 INF [path ds-test] [RTSP source] started
+2026/01/02 16:25:02 INF [RTMP] listener opened on :1935
+2026/01/02 16:25:02 INF [HLS] listener opened on :8888
+2026/01/02 16:25:02 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:25:02 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:25:03 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:25:04 INF [WebRTC] [session 4cd20ab6] created by 127.0.0.1:34006
+2026/01/02 16:25:05 INF [WebRTC] [session 4cd20ab6] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/39914
+2026/01/02 16:25:05 INF [WebRTC] [session 4cd20ab6] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:25:35 INF [WebRTC] [session 4cd20ab6] closed: peer connection closed
+2026/01/02 16:25:35 INF [WebRTC] [session 2819f120] created by 127.0.0.1:54150
+2026/01/02 16:25:36 INF [WebRTC] [session 2819f120] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/33457
+2026/01/02 16:25:36 INF [WebRTC] [session 2819f120] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:25:43 WAR [path ds-test] [RTSP source] 10 RTP packets lost
+2026/01/02 16:25:44 INF shutting down gracefully
+2026/01/02 16:25:44 INF [SRT] listener is closing
+2026/01/02 16:25:44 INF [WebRTC] listener is closing
+2026/01/02 16:25:44 INF [WebRTC] [session 2819f120] closed: terminated
+2026/01/02 16:25:44 INF [HLS] listener is closing
+2026/01/02 16:25:44 INF [RTMP] listener is closing
+2026/01/02 16:25:44 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:25:44 INF waiting for running hooks
+2026/01/02 16:25:46 INF MediaMTX v1.15.5
+2026/01/02 16:25:46 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 16:25:46 INF [path ds-test] [RTSP source] started
+2026/01/02 16:25:46 INF [RTMP] listener opened on :1935
+2026/01/02 16:25:46 INF [HLS] listener opened on :8888
+2026/01/02 16:25:46 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 16:25:46 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 16:25:47 INF [WebRTC] [session eea96414] created by 127.0.0.1:46652
+2026/01/02 16:25:47 INF [WebRTC] [session eea96414] closed: no stream is available on path 'ds-test'
+2026/01/02 16:25:47 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 16:25:49 INF [WebRTC] [session a77a59b7] created by 127.0.0.1:46652
+2026/01/02 16:25:50 INF [WebRTC] [session a77a59b7] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/55231
+2026/01/02 16:25:50 INF [WebRTC] [session a77a59b7] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 16:26:03 INF shutting down gracefully
+2026/01/02 16:26:03 INF [SRT] listener is closing
+2026/01/02 16:26:03 INF [WebRTC] listener is closing
+2026/01/02 16:26:03 INF [WebRTC] [session a77a59b7] closed: terminated
+2026/01/02 16:26:03 INF [HLS] listener is closing
+2026/01/02 16:26:03 INF [RTMP] listener is closing
+2026/01/02 16:26:03 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 16:26:03 INF waiting for running hooks
+2026/01/02 17:17:33 INF MediaMTX v1.15.5
+2026/01/02 17:17:33 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 17:17:33 INF [path ds-test] [RTSP source] started
+2026/01/02 17:17:33 INF [RTMP] listener opened on :1935
+2026/01/02 17:17:33 INF [HLS] listener opened on :8888
+2026/01/02 17:17:33 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 17:17:33 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 17:17:35 INF [WebRTC] [session e4e8b72c] created by 127.0.0.1:38706
+2026/01/02 17:17:35 INF [WebRTC] [session e4e8b72c] closed: no stream is available on path 'ds-test'
+2026/01/02 17:17:37 INF [WebRTC] [session f62f1c43] created by 127.0.0.1:38706
+2026/01/02 17:17:37 INF [WebRTC] [session f62f1c43] closed: no stream is available on path 'ds-test'
+2026/01/02 17:17:39 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 17:17:39 INF [WebRTC] [session a94a5f09] created by 127.0.0.1:38706
+2026/01/02 17:17:40 INF [WebRTC] [session a94a5f09] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/52805
+2026/01/02 17:17:40 INF [WebRTC] [session a94a5f09] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 17:18:30 INF shutting down gracefully
+2026/01/02 17:18:30 INF [SRT] listener is closing
+2026/01/02 17:18:30 INF [WebRTC] listener is closing
+2026/01/02 17:18:30 INF [WebRTC] [session a94a5f09] closed: terminated
+2026/01/02 17:18:30 INF [HLS] listener is closing
+2026/01/02 17:18:30 INF [RTMP] listener is closing
+2026/01/02 17:18:30 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 17:18:30 INF waiting for running hooks
+2026/01/02 17:25:38 INF MediaMTX v1.15.5
+2026/01/02 17:25:38 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 17:25:38 INF [path ds-test] [RTSP source] started
+2026/01/02 17:25:38 INF [RTMP] listener opened on :1935
+2026/01/02 17:25:38 INF [HLS] listener opened on :8888
+2026/01/02 17:25:38 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 17:25:38 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 17:25:38 INF [WebRTC] [session f830b7ae] created by 127.0.0.1:45266
+2026/01/02 17:25:38 INF [WebRTC] [session f830b7ae] closed: no stream is available on path 'ds-test'
+2026/01/02 17:25:40 INF [WebRTC] [session 4c7cd3b8] created by 127.0.0.1:45266
+2026/01/02 17:25:40 INF [WebRTC] [session 4c7cd3b8] closed: no stream is available on path 'ds-test'
+2026/01/02 17:25:41 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 17:25:42 INF [WebRTC] [session ecb16950] created by 127.0.0.1:45266
+2026/01/02 17:25:43 INF [WebRTC] [session ecb16950] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/34935
+2026/01/02 17:25:43 INF [WebRTC] [session ecb16950] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 17:26:26 INF [WebRTC] [session ecb16950] closed: peer connection closed
+2026/01/02 17:26:42 WAR [path ds-test] [RTSP source] 10 RTP packets lost
+2026/01/02 17:28:28 WAR [path ds-test] [RTSP source] 3 RTP packets lost
+2026/01/02 17:28:44 WAR [path ds-test] [RTSP source] 11 RTP packets lost
+2026/01/02 17:29:07 WAR [path ds-test] [RTSP source] 1 RTP packet lost
+2026/01/02 17:29:32 WAR [path ds-test] [RTSP source] 2 RTP packets lost
+2026/01/02 17:29:55 WAR [path ds-test] [RTSP source] 19 RTP packets lost
+2026/01/02 17:30:05 WAR [path ds-test] [RTSP source] 18 RTP packets lost
+2026/01/02 17:30:16 WAR [path ds-test] [RTSP source] 11 RTP packets lost
+2026/01/02 17:30:22 WAR [path ds-test] [RTSP source] 4 RTP packets lost
+2026/01/02 17:30:55 WAR [path ds-test] [RTSP source] 3 RTP packets lost
+2026/01/02 17:31:08 WAR [path ds-test] [RTSP source] 1 RTP packet lost
+2026/01/02 17:31:27 INF [WebRTC] [session 6570c06a] created by 127.0.0.1:46506
+2026/01/02 17:31:27 INF [WebRTC] [session 6570c06a] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/42683
+2026/01/02 17:31:27 INF [WebRTC] [session 6570c06a] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 17:31:30 INF shutting down gracefully
+2026/01/02 17:31:30 INF [SRT] listener is closing
+2026/01/02 17:31:30 INF [WebRTC] listener is closing
+2026/01/02 17:31:30 INF [WebRTC] [session 6570c06a] closed: terminated
+2026/01/02 17:31:30 INF [HLS] listener is closing
+2026/01/02 17:31:30 INF [RTMP] listener is closing
+2026/01/02 17:31:30 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 17:31:30 INF waiting for running hooks
+2026/01/02 17:31:49 INF MediaMTX v1.15.5
+2026/01/02 17:31:49 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 17:31:49 INF [path ds-test] [RTSP source] started
+2026/01/02 17:31:49 INF [RTMP] listener opened on :1935
+2026/01/02 17:31:49 INF [HLS] listener opened on :8888
+2026/01/02 17:31:49 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 17:31:49 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 17:31:50 INF [WebRTC] [session 907a932d] created by 127.0.0.1:57330
+2026/01/02 17:31:50 INF [WebRTC] [session 907a932d] closed: no stream is available on path 'ds-test'
+2026/01/02 17:31:51 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 17:31:53 INF [WebRTC] [session 47d856d8] created by 127.0.0.1:57330
+2026/01/02 17:31:53 INF [WebRTC] [session 47d856d8] peer connection established, local candidate: host/udp/fe80::f528:b0dd:fe80:5998/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/52347
+2026/01/02 17:31:53 INF [WebRTC] [session 47d856d8] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 17:31:53 WAR [path ds-test] [RTSP source] 2 RTP packets lost
+2026/01/02 17:32:01 INF shutting down gracefully
+2026/01/02 17:32:01 INF [SRT] listener is closing
+2026/01/02 17:32:01 INF [WebRTC] listener is closing
+2026/01/02 17:32:01 INF [WebRTC] [session 47d856d8] closed: terminated
+2026/01/02 17:32:01 INF [HLS] listener is closing
+2026/01/02 17:32:01 INF [RTMP] listener is closing
+2026/01/02 17:32:01 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 17:32:01 INF waiting for running hooks
+2026/01/02 19:15:43 INF MediaMTX v1.15.5
+2026/01/02 19:15:43 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 19:15:43 INF [path ds-test] [RTSP source] started
+2026/01/02 19:15:43 INF [RTMP] listener opened on :1935
+2026/01/02 19:15:43 INF [HLS] listener opened on :8888
+2026/01/02 19:15:43 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 19:15:43 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 19:15:45 INF [WebRTC] [session 8d5d7660] created by 127.0.0.1:49868
+2026/01/02 19:15:45 INF [WebRTC] [session 8d5d7660] closed: no stream is available on path 'ds-test'
+2026/01/02 19:15:46 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 19:15:47 INF [WebRTC] [session 54c665be] created by 127.0.0.1:49868
+2026/01/02 19:15:48 INF [WebRTC] [session 54c665be] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:50f0:57c4:60f:fc1d/36890
+2026/01/02 19:15:48 INF [WebRTC] [session 54c665be] is reading from path 'ds-test', 1 track (H264)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    2026/01/02 21:07:29 INF MediaMTX v1.15.5
+2026/01/02 21:07:29 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:07:29 INF [path ds-test] [RTSP source] started
+2026/01/02 21:07:29 INF [RTMP] listener opened on :1935
+2026/01/02 21:07:29 INF [HLS] listener opened on :8888
+2026/01/02 21:07:29 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:07:29 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:07:35 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:07:35 WAR [path ds-test] [RTSP source] 55 RTP packets lost
+2026/01/02 21:08:13 INF [WebRTC] [session 2efbdb97] created by 127.0.0.1:50044
+2026/01/02 21:08:13 INF [WebRTC] [session 2efbdb97] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/37896
+2026/01/02 21:08:13 INF [WebRTC] [session 2efbdb97] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:08:19 INF shutting down gracefully
+2026/01/02 21:08:19 INF [SRT] listener is closing
+2026/01/02 21:08:19 INF [WebRTC] listener is closing
+2026/01/02 21:08:19 INF [WebRTC] [session 2efbdb97] closed: terminated
+2026/01/02 21:08:19 INF [HLS] listener is closing
+2026/01/02 21:08:19 INF [RTMP] listener is closing
+2026/01/02 21:08:19 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:08:19 INF waiting for running hooks
+2026/01/02 21:08:21 INF MediaMTX v1.15.5
+2026/01/02 21:08:21 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:08:21 INF [path ds-test] [RTSP source] started
+2026/01/02 21:08:21 INF [RTMP] listener opened on :1935
+2026/01/02 21:08:21 INF [HLS] listener opened on :8888
+2026/01/02 21:08:21 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:08:21 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:08:22 INF [WebRTC] [session f30c33c9] created by 127.0.0.1:39236
+2026/01/02 21:08:22 INF [WebRTC] [session f30c33c9] closed: no stream is available on path 'ds-test'
+2026/01/02 21:08:23 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:08:24 INF [WebRTC] [session 9f6ed41b] created by 127.0.0.1:39236
+2026/01/02 21:08:24 INF [WebRTC] [session 9f6ed41b] peer connection established, local candidate: host/udp/192.168.1.118/8189, remote candidate: prflx/udp/192.168.1.118/34367
+2026/01/02 21:08:24 INF [WebRTC] [session 9f6ed41b] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:08:32 INF shutting down gracefully
+2026/01/02 21:08:32 INF [SRT] listener is closing
+2026/01/02 21:08:32 INF [WebRTC] listener is closing
+2026/01/02 21:08:32 INF [WebRTC] [session 9f6ed41b] closed: terminated
+2026/01/02 21:08:32 INF [HLS] listener is closing
+2026/01/02 21:08:32 INF [RTMP] listener is closing
+2026/01/02 21:08:32 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:08:32 INF waiting for running hooks
+2026/01/02 21:08:33 INF MediaMTX v1.15.5
+2026/01/02 21:08:33 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:08:33 INF [path ds-test] [RTSP source] started
+2026/01/02 21:08:33 INF [RTMP] listener opened on :1935
+2026/01/02 21:08:33 INF [HLS] listener opened on :8888
+2026/01/02 21:08:33 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:08:33 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:08:34 INF [WebRTC] [session 7dba14e4] created by 127.0.0.1:45258
+2026/01/02 21:08:34 INF [WebRTC] [session 7dba14e4] closed: no stream is available on path 'ds-test'
+2026/01/02 21:08:35 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:08:36 INF [WebRTC] [session c11fc970] created by 127.0.0.1:45258
+2026/01/02 21:08:36 INF [WebRTC] [session c11fc970] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/51483
+2026/01/02 21:08:36 INF [WebRTC] [session c11fc970] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:09:26 INF shutting down gracefully
+2026/01/02 21:09:26 INF [SRT] listener is closing
+2026/01/02 21:09:26 INF [WebRTC] listener is closing
+2026/01/02 21:09:26 INF [WebRTC] [session c11fc970] closed: terminated
+2026/01/02 21:09:26 INF [HLS] listener is closing
+2026/01/02 21:09:26 INF [RTMP] listener is closing
+2026/01/02 21:09:26 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:09:26 INF waiting for running hooks
+2026/01/02 21:09:37 INF MediaMTX v1.15.5
+2026/01/02 21:09:37 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:09:37 INF [path ds-test] [RTSP source] started
+2026/01/02 21:09:37 INF [RTMP] listener opened on :1935
+2026/01/02 21:09:37 INF [HLS] listener opened on :8888
+2026/01/02 21:09:37 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:09:37 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:09:39 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:09:40 INF [WebRTC] [session 2b596203] created by 127.0.0.1:56614
+2026/01/02 21:09:41 INF [WebRTC] [session 2b596203] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/50003
+2026/01/02 21:09:41 INF [WebRTC] [session 2b596203] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:09:45 WAR [path ds-test] [RTSP source] 10 RTP packets lost
+2026/01/02 21:09:51 INF [WebRTC] [session 2b596203] closed: peer connection closed
+2026/01/02 21:09:52 INF [WebRTC] [session 6b6ee803] created by 127.0.0.1:56614
+2026/01/02 21:09:52 INF [WebRTC] [session 6b6ee803] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/35955
+2026/01/02 21:09:52 INF [WebRTC] [session 6b6ee803] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:09:54 INF shutting down gracefully
+2026/01/02 21:09:54 INF [SRT] listener is closing
+2026/01/02 21:09:54 INF [WebRTC] listener is closing
+2026/01/02 21:09:54 INF [WebRTC] [session 6b6ee803] closed: terminated
+2026/01/02 21:09:54 INF [HLS] listener is closing
+2026/01/02 21:09:54 INF [RTMP] listener is closing
+2026/01/02 21:09:54 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:09:54 INF waiting for running hooks
+2026/01/02 21:09:56 INF MediaMTX v1.15.5
+2026/01/02 21:09:56 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:09:56 INF [path ds-test] [RTSP source] started
+2026/01/02 21:09:56 INF [RTMP] listener opened on :1935
+2026/01/02 21:09:56 INF [HLS] listener opened on :8888
+2026/01/02 21:09:56 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:09:56 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:09:57 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:09:58 INF [WebRTC] [session 3c70c41b] created by 127.0.0.1:55928
+2026/01/02 21:09:59 INF [WebRTC] [session 3c70c41b] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/50003
+2026/01/02 21:09:59 INF [WebRTC] [session 3c70c41b] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:09:59 INF shutting down gracefully
+2026/01/02 21:09:59 INF [SRT] listener is closing
+2026/01/02 21:09:59 INF [WebRTC] listener is closing
+2026/01/02 21:09:59 INF [WebRTC] [session 3c70c41b] closed: terminated
+2026/01/02 21:09:59 INF [HLS] listener is closing
+2026/01/02 21:09:59 INF [RTMP] listener is closing
+2026/01/02 21:09:59 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:09:59 INF waiting for running hooks
+2026/01/02 21:10:00 INF MediaMTX v1.15.5
+2026/01/02 21:10:00 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:10:00 INF [path ds-test] [RTSP source] started
+2026/01/02 21:10:00 INF [RTMP] listener opened on :1935
+2026/01/02 21:10:00 INF [HLS] listener opened on :8888
+2026/01/02 21:10:00 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:10:00 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:10:01 INF [WebRTC] [session 15247a3c] created by 127.0.0.1:55934
+2026/01/02 21:10:01 INF [WebRTC] [session 15247a3c] closed: no stream is available on path 'ds-test'
+2026/01/02 21:10:02 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:10:03 INF [WebRTC] [session 0c2243ff] created by 127.0.0.1:55934
+2026/01/02 21:10:04 INF [WebRTC] [session 0c2243ff] peer connection established, local candidate: host/udp/2a00:a041:1a43:600::1006/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/39772
+2026/01/02 21:10:04 INF [WebRTC] [session 0c2243ff] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:10:15 WAR [path ds-test] 15 processing errors
+2026/01/02 21:10:15 WAR [path ds-test] [RTSP source] 1 RTP packet lost
+2026/01/02 21:10:18 INF shutting down gracefully
+2026/01/02 21:10:18 INF [SRT] listener is closing
+2026/01/02 21:10:18 INF [WebRTC] listener is closing
+2026/01/02 21:10:18 INF [WebRTC] [session 0c2243ff] closed: terminated
+2026/01/02 21:10:18 INF [HLS] listener is closing
+2026/01/02 21:10:18 INF [RTMP] listener is closing
+2026/01/02 21:10:18 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:10:18 INF waiting for running hooks
+2026/01/02 21:17:40 INF MediaMTX v1.15.5
+2026/01/02 21:17:40 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:17:40 INF [path ds-test] [RTSP source] started
+2026/01/02 21:17:40 INF [RTMP] listener opened on :1935
+2026/01/02 21:17:40 INF [HLS] listener opened on :8888
+2026/01/02 21:17:40 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:17:40 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:17:41 INF [WebRTC] [session 4b93caa3] created by 127.0.0.1:33380
+2026/01/02 21:17:41 INF [WebRTC] [session 4b93caa3] closed: no stream is available on path 'ds-test'
+2026/01/02 21:17:42 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:17:43 INF [WebRTC] [session ce65ccdc] created by 127.0.0.1:33380
+2026/01/02 21:17:43 INF [WebRTC] [session ce65ccdc] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/60660
+2026/01/02 21:17:43 INF [WebRTC] [session ce65ccdc] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:18:25 INF shutting down gracefully
+2026/01/02 21:18:25 INF [SRT] listener is closing
+2026/01/02 21:18:25 INF [WebRTC] listener is closing
+2026/01/02 21:18:25 INF [WebRTC] [session ce65ccdc] closed: terminated
+2026/01/02 21:18:25 INF [HLS] listener is closing
+2026/01/02 21:18:25 INF [RTMP] listener is closing
+2026/01/02 21:18:25 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:18:25 INF waiting for running hooks
+2026/01/02 21:18:59 INF MediaMTX v1.15.5
+2026/01/02 21:18:59 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:18:59 INF [path ds-test] [RTSP source] started
+2026/01/02 21:18:59 INF [RTMP] listener opened on :1935
+2026/01/02 21:18:59 INF [HLS] listener opened on :8888
+2026/01/02 21:18:59 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:18:59 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:18:59 INF [WebRTC] [session d8828295] created by 127.0.0.1:39918
+2026/01/02 21:18:59 INF [WebRTC] [session d8828295] closed: no stream is available on path 'ds-test'
+2026/01/02 21:19:00 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:19:01 INF [WebRTC] [session 6b51a4c5] created by 127.0.0.1:39918
+2026/01/02 21:19:02 INF [WebRTC] [session 6b51a4c5] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/40314
+2026/01/02 21:19:02 INF [WebRTC] [session 6b51a4c5] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:19:26 INF shutting down gracefully
+2026/01/02 21:19:26 INF [SRT] listener is closing
+2026/01/02 21:19:26 INF [WebRTC] listener is closing
+2026/01/02 21:19:26 INF [WebRTC] [session 6b51a4c5] closed: terminated
+2026/01/02 21:19:26 INF [HLS] listener is closing
+2026/01/02 21:19:26 INF [RTMP] listener is closing
+2026/01/02 21:19:26 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:19:26 INF waiting for running hooks
+2026/01/02 21:20:08 INF MediaMTX v1.15.5
+2026/01/02 21:20:08 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:20:08 INF [path ds-test] [RTSP source] started
+2026/01/02 21:20:08 INF [RTMP] listener opened on :1935
+2026/01/02 21:20:08 INF [HLS] listener opened on :8888
+2026/01/02 21:20:08 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:20:08 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:20:08 INF [WebRTC] [session ab359126] created by 127.0.0.1:45160
+2026/01/02 21:20:08 INF [WebRTC] [session ab359126] closed: no stream is available on path 'ds-test'
+2026/01/02 21:20:10 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:20:10 INF [WebRTC] [session 2fba54b7] created by 127.0.0.1:45160
+2026/01/02 21:20:11 INF [WebRTC] [session 2fba54b7] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/55446
+2026/01/02 21:20:11 INF [WebRTC] [session 2fba54b7] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:20:18 INF shutting down gracefully
+2026/01/02 21:20:18 INF [SRT] listener is closing
+2026/01/02 21:20:18 INF [WebRTC] listener is closing
+2026/01/02 21:20:18 INF [WebRTC] [session 2fba54b7] closed: terminated
+2026/01/02 21:20:18 INF [HLS] listener is closing
+2026/01/02 21:20:18 INF [RTMP] listener is closing
+2026/01/02 21:20:18 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:20:18 INF waiting for running hooks
+2026/01/02 21:20:32 INF MediaMTX v1.15.5
+2026/01/02 21:20:32 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:20:32 INF [path ds-test] [RTSP source] started
+2026/01/02 21:20:32 INF [RTMP] listener opened on :1935
+2026/01/02 21:20:32 INF [HLS] listener opened on :8888
+2026/01/02 21:20:32 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:20:32 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:20:32 INF [WebRTC] [session f50a6f8c] created by 127.0.0.1:46104
+2026/01/02 21:20:32 INF [WebRTC] [session f50a6f8c] closed: no stream is available on path 'ds-test'
+2026/01/02 21:20:33 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:20:34 INF [WebRTC] [session 6de45e5d] created by 127.0.0.1:46104
+2026/01/02 21:20:35 INF [WebRTC] [session 6de45e5d] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/40378
+2026/01/02 21:20:35 INF [WebRTC] [session 6de45e5d] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:21:42 WAR [path ds-test] [RTSP source] 6 RTP packets lost
+2026/01/02 21:22:08 WAR [path ds-test] [RTSP source] 6 RTP packets lost
+2026/01/02 21:22:14 INF shutting down gracefully
+2026/01/02 21:22:14 INF [SRT] listener is closing
+2026/01/02 21:22:14 INF [WebRTC] listener is closing
+2026/01/02 21:22:14 INF [WebRTC] [session 6de45e5d] closed: terminated
+2026/01/02 21:22:14 INF [HLS] listener is closing
+2026/01/02 21:22:14 INF [RTMP] listener is closing
+2026/01/02 21:22:14 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:22:14 INF waiting for running hooks
+2026/01/02 21:22:39 INF MediaMTX v1.15.5
+2026/01/02 21:22:39 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:22:39 INF [path ds-test] [RTSP source] started
+2026/01/02 21:22:39 INF [RTMP] listener opened on :1935
+2026/01/02 21:22:39 INF [HLS] listener opened on :8888
+2026/01/02 21:22:39 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:22:39 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:22:40 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:22:41 INF [WebRTC] [session 22ecb7a0] created by 127.0.0.1:38014
+2026/01/02 21:22:41 INF [WebRTC] [session 22ecb7a0] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/57064
+2026/01/02 21:22:41 INF [WebRTC] [session 22ecb7a0] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:22:52 INF shutting down gracefully
+2026/01/02 21:22:52 INF [SRT] listener is closing
+2026/01/02 21:22:52 INF [WebRTC] listener is closing
+2026/01/02 21:22:52 INF [WebRTC] [session 22ecb7a0] closed: terminated
+2026/01/02 21:22:52 INF [HLS] listener is closing
+2026/01/02 21:22:52 INF [RTMP] listener is closing
+2026/01/02 21:22:52 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:22:52 INF waiting for running hooks
+2026/01/02 21:30:14 INF MediaMTX v1.15.5
+2026/01/02 21:30:14 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:30:14 INF [path ds-test] [RTSP source] started
+2026/01/02 21:30:14 INF [RTMP] listener opened on :1935
+2026/01/02 21:30:14 INF [HLS] listener opened on :8888
+2026/01/02 21:30:14 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:30:14 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:30:15 INF [WebRTC] [session 7ad597d2] created by 127.0.0.1:59306
+2026/01/02 21:30:15 INF [WebRTC] [session 7ad597d2] closed: no stream is available on path 'ds-test'
+2026/01/02 21:30:17 INF [WebRTC] [session 4aacbe7b] created by 127.0.0.1:59306
+2026/01/02 21:30:17 INF [WebRTC] [session 4aacbe7b] closed: no stream is available on path 'ds-test'
+2026/01/02 21:30:19 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:30:19 INF [WebRTC] [session 0785ade6] created by 127.0.0.1:59306
+2026/01/02 21:30:19 INF [WebRTC] [session 0785ade6] peer connection established, local candidate: host/udp/fe80::8d0e:2bb4:d5b9:e9fa/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/60428
+2026/01/02 21:30:19 INF [WebRTC] [session 0785ade6] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:30:38 INF shutting down gracefully
+2026/01/02 21:30:38 INF [SRT] listener is closing
+2026/01/02 21:30:38 INF [WebRTC] listener is closing
+2026/01/02 21:30:38 INF [WebRTC] [session 0785ade6] closed: terminated
+2026/01/02 21:30:38 INF [HLS] listener is closing
+2026/01/02 21:30:38 INF [RTMP] listener is closing
+2026/01/02 21:30:38 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:30:38 INF waiting for running hooks
+2026/01/02 21:33:16 INF MediaMTX v1.15.5
+2026/01/02 21:33:16 INF configuration loaded from /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/mediamtx.yml
+2026/01/02 21:33:16 INF [path ds-test] [RTSP source] started
+2026/01/02 21:33:16 INF [RTMP] listener opened on :1935
+2026/01/02 21:33:16 INF [HLS] listener opened on :8888
+2026/01/02 21:33:16 INF [WebRTC] listener opened on :8889 (HTTP), :8189 (ICE/UDP)
+2026/01/02 21:33:16 INF [SRT] listener opened on :8890 (UDP)
+2026/01/02 21:33:17 INF [WebRTC] [session 6af41e63] created by 127.0.0.1:45124
+2026/01/02 21:33:17 INF [WebRTC] [session 6af41e63] closed: no stream is available on path 'ds-test'
+2026/01/02 21:33:18 INF [path ds-test] [RTSP source] ready: 1 track (H264)
+2026/01/02 21:33:19 INF [WebRTC] [session ee82c9f4] created by 127.0.0.1:45124
+2026/01/02 21:33:19 INF [WebRTC] [session ee82c9f4] peer connection established, local candidate: host/udp/2a00:a041:1a43:600:b4cf:9e48:ae78:d5d3/8189, remote candidate: srflx/udp/2a00:a041:1a43:600:f3ba:1447:2f19:f061/60948
+2026/01/02 21:33:19 INF [WebRTC] [session ee82c9f4] is reading from path 'ds-test', 1 track (H264)
+2026/01/02 21:35:23 INF shutting down gracefully
+2026/01/02 21:35:23 INF [SRT] listener is closing
+2026/01/02 21:35:23 INF [WebRTC] listener is closing
+2026/01/02 21:35:23 INF [WebRTC] [session ee82c9f4] closed: terminated
+2026/01/02 21:35:23 INF [HLS] listener is closing
+2026/01/02 21:35:23 INF [RTMP] listener is closing
+2026/01/02 21:35:23 INF [path ds-test] [RTSP source] stopped: path is closing
+2026/01/02 21:35:23 INF waiting for running hooks

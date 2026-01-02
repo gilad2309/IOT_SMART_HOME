@@ -1,0 +1,134 @@
+.video-pane {
+  margin-top: 4px;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: radial-gradient(circle at 20% 20%, rgba(84, 255, 186, 0.08), rgba(20, 26, 36, 0.95));
+  min-height: 420px;
+  box-shadow: var(--shadow);
+}
+
+.video-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #05070d;
+  border-radius: 18px;
+}
+
+.video-frame video.hidden {
+  visibility: hidden;
+}
+
+.live-pill,
+.count-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+.live-pill.on .dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(56, 217, 150, 0.25);
+}
+
+.live-pill .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.count-pill {
+  left: auto;
+  right: 14px;
+  background: rgba(20, 26, 36, 0.9);
+}
+
+.status-chip {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 30% 30%, rgba(84, 255, 186, 0.04), rgba(5, 7, 13, 0.4));
+  border-radius: 18px;
+}
+
+.placeholder-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  filter: brightness(1.05);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
+}
+
+.placeholder-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--text);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.placeholder-copy .title {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+
+.placeholder-copy .subtitle {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.pill.ghost {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed var(--border);
+  color: var(--muted);
+}

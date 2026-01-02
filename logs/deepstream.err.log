@@ -71,3 +71,274 @@ NvMMLiteOpen : Block : BlockType = 279
 NvMMLiteBlockCreate : Block : BlockType = 279 
 
 (deepstream-test5-app:45888): GLib-GObject-WARNING **: 19:59:08.808: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+0:00:01.917426571 [32m22615[00m 0xaaaaeca5b960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.919649351 [32m22615[00m 0xaaaaeca5b960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.944649520 [32m22615[00m 0xaaaaeca5b960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:22615): GLib-GObject-WARNING **: 15:23:02.147: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:01.536999264 [32m23005[00m 0xaaab1241c160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.537349486 [32m23005[00m 0xaaab1241c160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.550927214 [32m23005[00m 0xaaab1241c160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:23005): GLib-GObject-WARNING **: 15:24:59.840: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:01.300048542 [32m24727[00m 0xaaaada5e9960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.300311112 [32m24727[00m 0xaaaada5e9960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.337975981 [32m24727[00m 0xaaaada5e9960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:24727): GLib-GObject-WARNING **: 15:40:28.604: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.700268903 [33m25040[00m 0xaaaafe44b560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.700467150 [33m25040[00m 0xaaaafe44b560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.708607665 [33m25040[00m 0xaaaafe44b560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:25040): GLib-GObject-WARNING **: 15:41:11.956: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:02.415149654 [36m27677[00m 0xaaaacbb99560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.415521923 [36m27677[00m 0xaaaacbb99560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.442002312 [36m27677[00m 0xaaaacbb99560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:27677): GLib-GObject-WARNING **: 16:02:18.914: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:01.473390870 [36m28517[00m 0xaaaafb521560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.474699587 [36m28517[00m 0xaaaafb521560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.490420413 [36m28517[00m 0xaaaafb521560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:28517): GLib-GObject-WARNING **: 16:05:54.245: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.671211597 [34m29019[00m 0xaaaade523960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.673404760 [34m29019[00m 0xaaaade523960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.681276711 [34m29019[00m 0xaaaade523960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:29019): GLib-GObject-WARNING **: 16:08:50.217: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.304478958 [36m29201[00m 0xaaaaca467960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.304645268 [36m29201[00m 0xaaaaca467960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.313017876 [36m29201[00m 0xaaaaca467960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:29201): GLib-GObject-WARNING **: 16:09:26.227: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.304465206 [35m29518[00m 0xaaaad43d3960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.304633724 [35m29518[00m 0xaaaad43d3960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.312542220 [35m29518[00m 0xaaaad43d3960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:29518): GLib-GObject-WARNING **: 16:10:19.245: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.321280990 [35m29668[00m 0xaaaae0aa3960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.321452196 [35m29668[00m 0xaaaae0aa3960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.329233744 [35m29668[00m 0xaaaae0aa3960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:29668): GLib-GObject-WARNING **: 16:10:50.325: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.308833293 [35m30166[00m 0xaaaac3f21160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.309002067 [35m30166[00m 0xaaaac3f21160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.317446839 [35m30166[00m 0xaaaac3f21160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:30166): GLib-GObject-WARNING **: 16:14:41.463: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.335269927 [34m30381[00m 0xaaaae8631560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.335426508 [34m30381[00m 0xaaaae8631560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.343281692 [34m30381[00m 0xaaaae8631560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:30381): GLib-GObject-WARNING **: 16:16:03.038: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.458809216 [33m30674[00m 0xaaaaf074e160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.458958309 [33m30674[00m 0xaaaaf074e160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.469734554 [33m30674[00m 0xaaaaf074e160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:30674): GLib-GObject-WARNING **: 16:17:46.569: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.334694558 [35m31000[00m 0xaaaae69db560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.334887909 [35m31000[00m 0xaaaae69db560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.344503442 [35m31000[00m 0xaaaae69db560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:31000): GLib-GObject-WARNING **: 16:18:45.108: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.310978127 [33m31394[00m 0xaaaadaf13560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.311162421 [33m31394[00m 0xaaaadaf13560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.319589209 [33m31394[00m 0xaaaadaf13560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:31394): GLib-GObject-WARNING **: 16:20:16.329: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.722120800 [33m32198[00m 0xaaab17868160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.722311623 [33m32198[00m 0xaaab17868160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.731135993 [33m32198[00m 0xaaab17868160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32198): GLib-GObject-WARNING **: 16:24:27.515: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.587891190 [32m32329[00m 0xaaaaed568160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.588044188 [32m32329[00m 0xaaaaed568160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.595999119 [32m32329[00m 0xaaaaed568160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32329): GLib-GObject-WARNING **: 16:24:55.740: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.314057892 [36m32441[00m 0xaaaac63a1560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.314220266 [36m32441[00m 0xaaaac63a1560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.322316739 [36m32441[00m 0xaaaac63a1560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32441): GLib-GObject-WARNING **: 16:25:02.103: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.304567773 [31m32622[00m 0xaaab105db160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.304725250 [31m32622[00m 0xaaab105db160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.313143814 [31m32622[00m 0xaaab105db160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32622): GLib-GObject-WARNING **: 16:25:46.076: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:05.035487488 [36m50645[00m 0xaaaae7683560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.035711495 [36m50645[00m 0xaaaae7683560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.166924401 [36m50645[00m 0xaaaae7683560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:50645): GLib-GObject-WARNING **: 17:17:36.299: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:02.685266534 [36m51935[00m 0xaaab06c49560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.685439916 [36m51935[00m 0xaaab06c49560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.709562385 [36m51935[00m 0xaaab06c49560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:51935): GLib-GObject-WARNING **: 17:25:39.856: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.428244429 [31m52566[00m 0xaaaaf1437960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.428421492 [31m52566[00m 0xaaaaf1437960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.437270375 [31m52566[00m 0xaaaaf1437960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:52566): GLib-GObject-WARNING **: 17:31:49.849: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.812991818 [32m59095[00m 0xaaaac86f7160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.815226709 [32m59095[00m 0xaaaac86f7160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.833159763 [32m59095[00m 0xaaaac86f7160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:59095): GLib-GObject-WARNING **: 19:15:44.035: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+                                             0:00:04.849083246 [33m 9704[00m 0xaaaad3da6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.860844255 [33m 9704[00m 0xaaaad3da6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.978729269 [33m 9704[00m 0xaaaad3da6560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:9704): GLib-GObject-WARNING **: 21:07:32.472: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.746151666 [34m 9981[00m 0xaaaac38b7960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.746321079 [34m 9981[00m 0xaaaac38b7960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.755030857 [34m 9981[00m 0xaaaac38b7960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:9981): GLib-GObject-WARNING **: 21:08:21.435: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.344808517 [32m10129[00m 0xaaaaee6e6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.344961290 [32m10129[00m 0xaaaaee6e6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.353181676 [32m10129[00m 0xaaaaee6e6560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:10129): GLib-GObject-WARNING **: 21:08:33.711: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.347011138 [31m10578[00m 0xaaaaf136df60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.347236138 [31m10578[00m 0xaaaaf136df60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.355730230 [31m10578[00m 0xaaaaf136df60 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:10578): GLib-GObject-WARNING **: 21:09:37.908: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.308464552 [31m10722[00m 0xaaaafa540560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.308620141 [31m10722[00m 0xaaaafa540560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.316545223 [31m10722[00m 0xaaaafa540560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:10722): GLib-GObject-WARNING **: 21:09:56.405: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.314459975 [33m10814[00m 0xaaaad8e38d60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.314611436 [33m10814[00m 0xaaaad8e38d60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.322973588 [33m10814[00m 0xaaaad8e38d60 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:10814): GLib-GObject-WARNING **: 21:10:00.632: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.745169538 [36m12299[00m 0xaaaaebfb0560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.745385513 [36m12299[00m 0xaaaaebfb0560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.763421000 [36m12299[00m 0xaaaaebfb0560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:12299): GLib-GObject-WARNING **: 21:17:40.269: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.383511433 [31m12492[00m 0xaaaac0ad8960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.383719855 [31m12492[00m 0xaaaac0ad8960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.391988375 [31m12492[00m 0xaaaac0ad8960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:12492): GLib-GObject-WARNING **: 21:18:59.044: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.342245324 [35m12790[00m 0xaaaad39d6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.342522197 [35m12790[00m 0xaaaad39d6560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.351630328 [35m12790[00m 0xaaaad39d6560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:12790): GLib-GObject-WARNING **: 21:20:08.426: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.343514135 [35m12988[00m 0xaaab0b1fe160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.343683068 [35m12988[00m 0xaaab0b1fe160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.352013638 [35m12988[00m 0xaaab0b1fe160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:12988): GLib-GObject-WARNING **: 21:20:32.263: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+0:00:00.336178807 [35m13312[00m 0xaaaaf4cef560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.336352541 [35m13312[00m 0xaaaaf4cef560 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.344061363 [35m13312[00m 0xaaaaf4cef560 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:13312): GLib-GObject-WARNING **: 21:22:39.199: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:04.120015157 [33m14384[00m 0xaaab03b2c960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.120216382 [33m14384[00m 0xaaab03b2c960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.235628434 [33m14384[00m 0xaaab03b2c960 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:14384): GLib-GObject-WARNING **: 21:30:16.695: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.972100871 [34m14913[00m 0xaaaade604760 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.972277263 [34m14913[00m 0xaaaade604760 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.993080020 [34m14913[00m 0xaaaade604760 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:14913): GLib-GObject-WARNING **: 21:33:16.777: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM

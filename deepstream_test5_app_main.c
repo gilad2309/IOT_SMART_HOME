@@ -659,12 +659,20 @@ bbox_generated_probe_after_analytics (AppCtx * appCtx, GstBuffer * buf,
       src_stream->last_ntp_time = buf_ntp_time;
     }
 
-    GList *l;
-    for (l = frame_meta->obj_meta_list; l != NULL; l = l->next) {
+    GList *l = frame_meta->obj_meta_list;
+    while (l != NULL) {
+      GList *l_next = l->next;
       /* Now using above information we need to form a text that should
        * be displayed on top of the bounding box, so lets form it here. */
 
       obj_meta = (NvDsObjectMeta *) (l->data);
+      /* Keep only person detections; drop all other classes. */
+      if (obj_meta->class_id != PERSON_CLASS_ID) {
+        nvds_remove_obj_meta_from_frame (frame_meta, obj_meta);
+        l = l_next;
+        continue;
+      }
+
       if (obj_meta->class_id == PERSON_CLASS_ID) {
         person_count++;
       }
@@ -736,6 +744,7 @@ bbox_generated_probe_after_analytics (AppCtx * appCtx, GstBuffer * buf,
           g_print ("Error in attaching event meta to buffer\n");
         }
       }
+      l = l_next;
     }
     testAppCtx->streams[stream_id].frameCount++;
     publish_person_count (person_count, stream_id);
