@@ -10,7 +10,8 @@ async function connectStreams() {
 
     // The media server exposes different streams as "paths". We match the one from DeepStream.
     // The /whep endpoint is the standard for WebRTC HTTP Egress Protocol.
-    const mediaServerUrl = 'http://localhost:8889/ds-test/whep'; 
+    // Use 127.0.0.1 to match the page host and avoid CORS (localhost vs 127.0.0.1 are different origins).
+    const mediaServerUrl = 'http://127.0.0.1:8889/ds-test/whep'; 
 
     // MQTT (person count)
     const mqttUrl = (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + '127.0.0.1:9001';
