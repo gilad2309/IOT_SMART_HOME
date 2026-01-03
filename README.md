@@ -1,86 +1,56 @@
-# DeepStream RTSP → WebRTC Demo (YOLO + overlays)
+# DeepStream RTSP → WebRTC + MQTT + LED notifier
 
-This repo streams RTSP from DeepStream (with YOLO overlays) and serves it to the browser via MediaMTX (WHEP) and a simple web page. Display sink is disabled; only RTSP/WebRTC output runs.
+End-to-end flow: DeepStream runs YOLO and publishes RTSP. MediaMTX pulls RTSP and serves WHEP/WebRTC to the web UI. A UDP→MQTT bridge publishes person counts to `deepstream/person_count`. The web UI shows the stream and live counts. An LED notifier subscribes to MQTT and blinks a GPIO LED when person_count ≥ threshold. All of these can be started/stopped from the web “Start Pipeline” button.
 
 ## Prerequisites
 - NVIDIA DeepStream 7.1 installed.
-- Your RTSP camera URL set in `configs/DeepStream-Yolo/deepstream_app_config.txt` (`[source0].uri`).
-- MediaMTX binary in this folder (`./mediamtx_v1.15.5_linux_arm64.tar.gz` extracted to `./mediamtx`).
-- Mosquitto MQTT broker running on 1883 (TCP) and 9001 (WebSocket), or use the bundled Node broker.
-- Node (for the web server and bridge).
+- RTSP camera URL set in `configs/DeepStream-Yolo/deepstream_app_config.txt` (`[source0].uri`).
+- MediaMTX binary extracted to `./mediamtx` (from `mediamtx_v1.15.5_linux_arm64.tar.gz`).
+- MQTT broker: Mosquitto service running on 1883 (TCP) and 9001 (WebSocket). The repo also has a Node broker if you need it.
+- Node.js + npm installed (for server, bridge, UI).
+- Python 3 with `Jetson.GPIO` and `paho-mqtt` (for LED notifier): `sudo apt-get install python3-pip python3-paho-mqtt` (Jetson.GPIO is available on Jetson images).
+- GPIO wiring: LED on BOARD pin 7 (default) with resistor to GND. Run the server with sudo so GPIO access works.
 
-## Quick start (single command + button)
-1) In this folder:
+## Install (first time)
 ```bash
 cd ~/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5
-npm install   # first time
-npm run serve  # serves UI on http://127.0.0.1:8081 and exposes /api/start
+npm install
 ```
-2) Open `http://127.0.0.1:8081/` and click **Start Pipeline**. This will:
-   - start `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt`
-   - start `./mediamtx mediamtx.yml`
-   - start `node person_mqtt_bridge.js` (expects Mosquitto on 1883 and WS 9001)
 
-Logs land in `logs/*.log`. Use the button to retry if startup races.
-If you installed `server.js` as a systemd service, check it with:
+## Run (single command + button)
 ```bash
-systemctl status deepstream-web.service
+cd ~/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5
+sudo npm run serve
 ```
-Also ensure Mosquitto is running:
-```bash
-systemctl status mosquitto
-```
+- Opens UI at http://127.0.0.1:8081
+- Click **Start Pipeline**. This starts:
+  - `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt` (RTSP out on 8554)
+  - `./mediamtx mediamtx.yml` (pull RTSP, serve WHEP at /ds-test/whep)
+  - `node person_mqtt_bridge.js` (UDP → MQTT at deepstream/person_count)
+  - `python3 person_led_mqtt.py` (subscribes to MQTT, blinks LED)
+- Click **Stop** to terminate all.
 
-## Manual run (terminals)
-Terminal 1 – DeepStream (RTSP out on 8554):
-```bash
-./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt
-```
+Defaults you can override via env before `npm run serve`:
+- `MQTT_HOST`/`MQTT_PORT` (default 127.0.0.1/1883)
+- `MQTT_TOPIC` (default deepstream/person_count)
+- `PERSON_THRESHOLD` (default 1), `LED_PIN` (default BOARD 7), `LED_HOLD_SECONDS` (default 5)
 
-Terminal 2 – MediaMTX (RTSP → WebRTC/WHEP):
-```bash
-./mediamtx mediamtx.yml
-```
-
-Terminal 3 – Serve the web page (simple static server):
-```bash
-npx http-server . -p 8081
-```
-
-Terminal 4 – MQTT broker (TCP 1883 + WS 9001):
-- Preferred: Mosquitto with WebSocket listener:
-  ```
-  listener 1883
-  protocol mqtt
-
-  listener 9001
-  protocol websockets
-  allow_anonymous true
-  ```
-  then `sudo systemctl restart mosquitto`.
-- Bundled fallback (Node broker):
-  ```bash
-  npm run mqtt-broker
-  ```
-
-Terminal 5 – MQTT bridge (UDP → MQTT):
-```bash
-MQTT_URL=mqtt://127.0.0.1:1883 MQTT_TOPIC=deepstream/person_count node person_mqtt_bridge.js
-```
-
-Browser: open `http://127.0.0.1:8081/` (static server or `npm run serve`) to view the stream and person count.
+## Manual run (if you prefer separate terminals)
+- DeepStream: `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt`
+- MediaMTX: `./mediamtx mediamtx.yml`
+- Web server: `npx http-server . -p 8081` (or any static server)
+- MQTT broker: Mosquitto (`systemctl status mosquitto`) or `npm run mqtt-broker`
+- UDP→MQTT bridge: `MQTT_URL=mqtt://127.0.0.1:1883 MQTT_TOPIC=deepstream/person_count node person_mqtt_bridge.js`
+- LED notifier: `sudo MQTT_HOST=127.0.0.1 MQTT_PORT=1883 PERSON_THRESHOLD=1 LED_PIN=7 python3 person_led_mqtt.py`
 
 ## Quick checks
-- Verify RTSP locally:
-  ```bash
-  ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,profile,has_b_frames -of default=nw=1 rtsp://127.0.0.1:8554/ds-test
-  ```
-  Expect `profile=Constrained Baseline` and `has_b_frames=0`.
-- MediaMTX UI: `http://127.0.0.1:8889/` (should list `ds-test`).
+- RTSP sanity: `ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,profile,has_b_frames -of default=nw=1 rtsp://127.0.0.1:8554/ds-test`
+- MediaMTX UI: `http://127.0.0.1:8889/` (should list `ds-test`)
+- MQTT messages: `mosquitto_sub -h 127.0.0.1 -t deepstream/person_count -v`
+- LED notifier logs: `logs/led_notifier.out.log` and `.err.log`
 
 ## Notes
-- RTSP output path is `rtsp://localhost:8554/ds-test`.
-- `mediamtx.yml` is configured to pull that RTSP and expose WHEP at `/ds-test/whep`.
-- If port 8081 is busy, pick another (`-p 8082`) and open that in the browser.
-- If your camera is H265, switch it to H264 or add a compatible decode path before inference.
-- MQTT broker: bundled Node broker in this repo (`npm run mqtt-broker`) exposes MQTT on 1883 and WebSocket on 9001. The web page connects to `ws://127.0.0.1:9001` and subscribes to `deepstream/person_count`. The bridge publishes the person count to the broker.
+- RTSP out: `rtsp://localhost:8554/ds-test`
+- WHEP endpoint: `http://127.0.0.1:8889/ds-test/whep`
+- UI connects to WHEP and to MQTT WS (default `ws://127.0.0.1:9001` if using Node broker; Mosquitto WS must be enabled separately).
+- Run the server as sudo to allow the LED notifier to access GPIO. If you change pins or thresholds, export env vars before `npm run serve`.

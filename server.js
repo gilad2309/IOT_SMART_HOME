@@ -74,6 +74,17 @@ function handleStart(req, res) {
           MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count'
         }
       });
+      // Start LED notifier (MQTT -> GPIO). Must have permissions for GPIO; run server with sudo if required.
+      results.led_notifier = startProcess('led_notifier', 'python3', ['person_led_mqtt.py'], {
+        env: {
+          MQTT_HOST: process.env.MQTT_HOST || '127.0.0.1',
+          MQTT_PORT: process.env.MQTT_PORT || '1883',
+          MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count',
+          PERSON_THRESHOLD: process.env.PERSON_THRESHOLD || '1',
+          LED_PIN: process.env.LED_PIN || '7',
+          LED_HOLD_SECONDS: process.env.LED_HOLD_SECONDS || '5'
+        }
+      });
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ ok: true, results }));
     });
@@ -131,7 +142,8 @@ function handleStop(req, res) {
   const stopped = {
     deepstream: stopProcess('deepstream'),
     mediamtx: stopProcess('mediamtx'),
-    mqtt_bridge: stopProcess('mqtt_bridge')
+    mqtt_bridge: stopProcess('mqtt_bridge'),
+    led_notifier: stopProcess('led_notifier')
   };
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ ok: true, stopped }));
