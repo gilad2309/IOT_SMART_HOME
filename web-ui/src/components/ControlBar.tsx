@@ -43,11 +43,11 @@ export function ControlBar({ state, onStart, onStop, disabled, error, mqttState 
 function stateCopy(state: PipelineState) {
   switch (state) {
     case 'idle':
-      return 'Idle. Click start to launch DeepStream + MediaMTX + MQTT bridge.';
+      return 'Idle. Click start to launch pipeline';
     case 'starting':
       return 'Starting services…';
     case 'streaming':
-      return 'Running. Stream should be available at /ds-test/whep.';
+      return 'Running.';
     case 'error':
       return 'Error. Check logs.';
     default:

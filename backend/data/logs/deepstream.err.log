@@ -1,0 +1,220 @@
+0:00:04.685758449 [35m26188[00m 0xaaaac0bd4f60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.686078749 [35m26188[00m 0xaaaac0bd4f60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.686293412 [35m26188[00m 0xaaaac0bd4f60 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:04.790155725 [35m26188[00m 0xaaaac0bd4f60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:04.790261905 [35m26188[00m 0xaaaac0bd4f60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:05.231855646 [36m26591[00m 0xaaab01ca9160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.233073193 [36m26591[00m 0xaaab01ca9160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.233367635 [36m26591[00m 0xaaab01ca9160 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:05.327228675 [36m26591[00m 0xaaab01ca9160 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:05.327331623 [36m26591[00m 0xaaab01ca9160 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:00.622394657 [35m26662[00m 0xaaaad5950960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.622553159 [35m26662[00m 0xaaaad5950960 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.622684236 [35m26662[00m 0xaaaad5950960 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:00.637932037 [35m26662[00m 0xaaaad5950960 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:00.638011688 [35m26662[00m 0xaaaad5950960 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:00.436564509 [32m26719[00m 0xaaaaef4cef60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.436711075 [32m26719[00m 0xaaaaef4cef60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.436839751 [32m26719[00m 0xaaaaef4cef60 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:00.451926043 [32m26719[00m 0xaaaaef4cef60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:00.452018782 [32m26719[00m 0xaaaaef4cef60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:00.584308077 [34m26829[00m 0xaaaac9e8b160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.584452274 [34m26829[00m 0xaaaac9e8b160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.584611768 [34m26829[00m 0xaaaac9e8b160 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:00.612521328 [34m26829[00m 0xaaaac9e8b160 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:00.612605971 [34m26829[00m 0xaaaac9e8b160 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:03.883620634 [36m27377[00m 0xaaaaf0a9ff60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:03.883851810 [36m27377[00m 0xaaaaf0a9ff60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:03.884016904 [36m27377[00m 0xaaaaf0a9ff60 [31;01mERROR  [00m [00m             nvinfer gstnvinfer.cpp:678:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Error in NvDsInferContextImpl::parseLabelsFile() <nvdsinfer_context_impl.cpp:547> [UID = 1]: Could not open labels file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs
+ERROR: parse label file:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/configs failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: init post processing resource failed, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context failed to initialize post-processing resource, nvinfer error:NVDSINFER_CONFIG_FAILED
+ERROR: Infer Context prepare postprocessing resource failed., nvinfer error:NVDSINFER_CONFIG_FAILED
+0:00:03.905722369 [36m27377[00m 0xaaaaf0a9ff60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Failed to create NvDsInferContext instance
+0:00:03.905816197 [36m27377[00m 0xaaaaf0a9ff60 [33;01mWARN   [00m [00m             nvinfer gstnvinfer.cpp:914:gst_nvinfer_start:<primary_gie>[00m error: Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+ERROR from primary_gie: Failed to create NvDsInferContext instance
+Debug info: /dvs/git/dirty/git-master_linux/deepstream/sdk/src/gst-plugins/gst-nvinfer/gstnvinfer.cpp(914): gst_nvinfer_start (): /GstPipeline:pipeline/GstBin:primary_gie_bin/GstNvInfer:primary_gie:
+Config file path: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt, NvDsInfer Error: NVDSINFER_CONFIG_FAILED
+[deepstream] exited code=255 signal=null
+0:00:01.982904376 [33m27878[00m 0xaaaad6022b60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.985502323 [33m27878[00m 0xaaaad6022b60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.008078088 [33m27878[00m 0xaaaad6022b60 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:27878): GLib-GObject-WARNING **: 23:13:58.579: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:04.693128809 [33m29786[00m 0xaaab135aab60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.695243780 [33m29786[00m 0xaaab135aab60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.719779097 [33m29786[00m 0xaaab135aab60 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:29786): GLib-GObject-WARNING **: 23:26:30.943: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:04.915471573 [36m30719[00m 0xaaaae763a160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.917573033 [36m30719[00m 0xaaaae763a160 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.007531686 [36m30719[00m 0xaaaae763a160 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:30719): GLib-GObject-WARNING **: 23:31:49.862: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:04.928345577 [34m32217[00m 0xaaaadca11cd0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.933293122 [34m32217[00m 0xaaaadca11cd0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:05.058170939 [34m32217[00m 0xaaaadca11cd0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32217): GLib-GObject-WARNING **: 23:43:55.095: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+ERROR from src_elem1: Could not open resource for reading and writing.
+Debug info: ../gst/rtsp/gstrtspsrc.c(8130): gst_rtspsrc_retrieve_sdp (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Failed to connect. (Generic error)
+ERROR from src_elem1: Could not open resource for reading and writing.
+Debug info: ../gst/rtsp/gstrtspsrc.c(8130): gst_rtspsrc_retrieve_sdp (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Failed to connect. (Generic error)
+[deepstream] exited code=null signal=SIGTERM
+0:00:01.902493405 [35m32374[00m 0xaaab12c404d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.902628546 [35m32374[00m 0xaaab12c404d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.912005472 [35m32374[00m 0xaaab12c404d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:32374): GLib-GObject-WARNING **: 23:44:39.569: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+ERROR from src_elem1: Could not open resource for reading and writing.
+Debug info: ../gst/rtsp/gstrtspsrc.c(8130): gst_rtspsrc_retrieve_sdp (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Failed to connect. (Generic error)
+ERROR from src_elem1: Could not open resource for reading and writing.
+Debug info: ../gst/rtsp/gstrtspsrc.c(8130): gst_rtspsrc_retrieve_sdp (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Failed to connect. (Generic error)
+[deepstream] exited code=null signal=SIGTERM
+0:00:06.053153684 [35m33208[00m 0xaaaaead914d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:06.057763391 [35m33208[00m 0xaaaaead914d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:06.183765117 [35m33208[00m 0xaaaaead914d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:33208): GLib-GObject-WARNING **: 23:47:43.993: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+0:00:04.768841605 [32m 6691[00m 0xaaaaaf6988d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.771120350 [32m 6691[00m 0xaaaaaf6988d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:04.911027859 [32m 6691[00m 0xaaaaaf6988d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:6691): GLib-GObject-WARNING **: 23:54:42.760: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:02.832701770 [31m 7584[00m 0xaaab1b1ea2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.832917479 [31m 7584[00m 0xaaab1b1ea2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:02.853964789 [31m 7584[00m 0xaaab1b1ea2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:7584): GLib-GObject-WARNING **: 23:57:44.101: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.498135619 [36m 7751[00m 0xaaaabe1f86d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.498290817 [36m 7751[00m 0xaaaabe1f86d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.510933418 [36m 7751[00m 0xaaaabe1f86d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:7751): GLib-GObject-WARNING **: 23:58:00.326: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.350560682 [31m 8238[00m 0xaaab21afa2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.350742055 [31m 8238[00m 0xaaab21afa2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.359397866 [31m 8238[00m 0xaaab21afa2d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+
+(deepstream-test5-app:8238): GLib-GObject-WARNING **: 23:59:00.055: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+ERROR from src_elem1: Unauthorized
+Debug info: ../gst/rtsp/gstrtspsrc.c(6740): gst_rtspsrc_send (): /GstPipeline:pipeline/GstBin:multi_src_bin/GstBin:src_sub_bin1/GstRTSPSrc:src_elem1:
+Unauthorized (401)
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:00.338333372 [34m 8487[00m 0xaaaab41618d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.338514874 [34m 8487[00m 0xaaaab41618d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:00.346839841 [34m 8487[00m 0xaaaab41618d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:8487): GLib-GObject-WARNING **: 23:59:43.004: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM
+0:00:01.154801442 [36m 9263[00m 0xaaaaf1e5ed60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2092> [UID = 1]: deserialized trt engine from :/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.215248617 [36m 9263[00m 0xaaaaf1e5ed60 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:684:gst_nvinfer_logger:<primary_gie>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2195> [UID = 1]: Use deserialized engine model: /home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:01.275706319 [36m 9263[00m 0xaaaaf1e5ed60 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary_gie>[00m [UID 1]: Load new model:/home/gilad/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5/backend/deepstream/configs/DeepStream-Yolo/config_infer_primary_yoloV8.txt sucessfully
+
+(deepstream-test5-app:9263): GLib-GObject-WARNING **: 00:04:40.071: g_object_get_is_valid_property: object class 'GstUDPSrc' has no property named 'pt'
+NvMMLiteOpen : Block : BlockType = 279 
+NvMMLiteBlockCreate : Block : BlockType = 279 
+[deepstream] exited code=null signal=SIGTERM

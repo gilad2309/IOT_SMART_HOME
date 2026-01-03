@@ -1,0 +1,10 @@
+paths:
+  ds-test:
+    # Pull the RTSP stream produced by DeepStream (H264 with overlays) and expose it as WebRTC/WHEP.
+    source: rtsp://localhost:8554/ds-test
+
+# Disable MediaMTX RTSP server (DeepStream already uses 8554) to avoid port conflict.
+rtsp: no
+
+# Allow browser WHEP/WHIP fetches from any origin (fixes CORS error in app.js).
+webrtcAllowOrigins: ["*"]

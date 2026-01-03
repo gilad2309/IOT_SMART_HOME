@@ -32,3 +32,12 @@ NameError: name 'on_for_duration' is not defined. Did you mean: 'blink_for_durat
 [led_notifier] exited code=null signal=SIGTERM
 [led_notifier] exited code=null signal=SIGTERM
 [led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM
+[led_notifier] exited code=null signal=SIGTERM

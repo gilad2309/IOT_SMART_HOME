@@ -1,0 +1,2 @@
+enable,type,uri,num-sources,gpu-id,nvbuf-memory-type
+1,4,rtsp://admin:Giladas565@10.1.1.65:554/cam/realmonitor?channel=1&subtype=0,1,0,0
