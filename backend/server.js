@@ -88,7 +88,7 @@ function handleStart(req, res) {
       // Start LED notifier (MQTT -> GPIO). Must have permissions for GPIO; run server with sudo if required.
       results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'bridge', 'person_led_mqtt.py')], {
         env: {
-          MQTT_HOST: process.env.MQTT_HOST || '127.0.0.1',
+          MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
           MQTT_PORT: process.env.MQTT_PORT || '1883',
           MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count',
           PERSON_THRESHOLD: process.env.PERSON_THRESHOLD || '1',
