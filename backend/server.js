@@ -81,7 +81,7 @@ function handleStart(req, res) {
       // Start MQTT bridge (assumes broker on 1883/9001).
       results.bridge = startProcess('mqtt_bridge', 'node', [path.join(BACKEND_DIR, 'bridge', 'person_mqtt_bridge.js')], {
         env: {
-          MQTT_URL: process.env.MQTT_URL || 'mqtt://127.0.0.1:1883',
+          MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
           MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count'
         }
       });

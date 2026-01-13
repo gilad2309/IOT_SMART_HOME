@@ -5,7 +5,7 @@ const dgram = require('dgram');
 const mqtt = require('mqtt');
 
 const UDP_PORT = process.env.PERSON_UDP_PORT || 50052;
-const MQTT_URL = process.env.MQTT_URL || 'mqtt://127.0.0.1:1883';
+const MQTT_URL = process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883';
 const MQTT_TOPIC = process.env.MQTT_TOPIC || 'deepstream/person_count';
 
 const sock = dgram.createSocket('udp4');

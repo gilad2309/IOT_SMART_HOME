@@ -15,3 +15,123 @@
 [mqtt_bridge] exited code=null signal=SIGTERM
 [mqtt_bridge] exited code=null signal=SIGTERM
 [mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[person-mqtt] MQTT error Error: getaddrinfo ENOTFOUND broker.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3007,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'broker.example.com'
+}
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
+[mqtt_bridge] exited code=null signal=SIGTERM
