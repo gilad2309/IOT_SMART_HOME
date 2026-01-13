@@ -74,6 +74,11 @@ Create tables:
 - `metrics` with partition key `metric` (String) and sort key `ts` (Number)
 - `alarms` with partition key `type` (String) and sort key `ts` (Number)
 
+Create AWS access keys:
+1) AWS Console → IAM → Users → select your user
+2) Security credentials → Access keys → Create access key
+3) Choose “Application running outside AWS”, download the key pair
+
 Set env vars:
 ```bash
 export AWS_ACCESS_KEY_ID=...
@@ -83,6 +88,7 @@ export DDB_METRICS_TABLE=metrics
 export DDB_ALARMS_TABLE=alarms
 export DDB_ENABLED=1
 ```
+Note: If you reboot the PC, you must export these again (unless you add them to `~/.bashrc` or a `.env` file).
 
 ## Notes
 - RTSP out: `rtsp://localhost:8554/ds-test`
