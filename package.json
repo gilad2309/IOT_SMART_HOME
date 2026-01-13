@@ -4,7 +4,6 @@
   "description": "Simple signaling server for DeepStream WebRTC",
   "main": "signaling_server.js",
   "scripts": {
-    "start": "node backend/signaling_server.js",
     "data-manager": "python3 backend/mqtt/data_manager.py",
     "relay-emulator": "python3 backend/mqtt/relay_emulator.py",
     "serve": "node backend/server.js"
