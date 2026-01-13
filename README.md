@@ -6,10 +6,10 @@ End-to-end flow: DeepStream runs YOLO, publishes RTSP, and sends person counts d
 - NVIDIA DeepStream 7.1 installed.
 - RTSP camera URL set in `configs/DeepStream-Yolo/deepstream_app_config.txt` (`[source0].uri`).
 - MediaMTX binary extracted to `./mediamtx` (from `mediamtx_v1.15.5_linux_arm64.tar.gz`).
-- MQTT broker: Mosquitto service running on 1883 (TCP) and 9001 (WebSocket). The repo also has a Node broker if you need it.
+- MQTT broker: Mosquitto service running on 1883 (TCP) and 9001 (WebSocket), or use a public broker.
 - Node.js + npm installed (for server and UI).
 - libmosquitto headers (for building DeepStream MQTT publisher): `sudo apt-get install -y libmosquitto-dev`
-- Python 3 with `Jetson.GPIO` and `paho-mqtt` (for LED notifier): `sudo apt-get install python3-pip python3-paho-mqtt` (Jetson.GPIO is available on Jetson images).
+- Python 3 with `Jetson.GPIO` and `paho-mqtt` (for LED notifier + data manager + relay emulator): `sudo apt-get install python3-pip python3-paho-mqtt` (Jetson.GPIO is available on Jetson images).
 - GPIO wiring: LED on BOARD pin 7 (default) with resistor to GND. Run the server with sudo so GPIO access works.
 
 ## Install (first time)
@@ -32,7 +32,7 @@ sudo npm run serve
 - Click **Start Pipeline**. This starts:
   - `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt` (RTSP out on 8554, publishes MQTT counts)
   - `./mediamtx mediamtx.yml` (pull RTSP, serve WHEP at /ds-test/whep)
-- `python3 person_led_mqtt.py` (subscribes to MQTT, blinks LED)
+  - `python3 backend/mqtt/person_led_mqtt.py` (subscribes to MQTT, blinks LED)
 - Click **Stop** to terminate all.
 
 Defaults you can override via env before `npm run serve`:
@@ -49,8 +49,8 @@ Defaults you can override via env before `npm run serve`:
 - DeepStream: `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt`
 - MediaMTX: `./mediamtx mediamtx.yml`
 - Web server: `npx http-server . -p 8081` (or any static server)
-- MQTT broker: Mosquitto (`systemctl status mosquitto`) or `npm run mqtt-broker`
-- LED notifier: `sudo MQTT_HOST=127.0.0.1 MQTT_PORT=1883 PERSON_THRESHOLD=1 LED_PIN=7 python3 person_led_mqtt.py`
+- MQTT broker: Mosquitto (`systemctl status mosquitto`) or a public broker
+- LED notifier: `sudo MQTT_HOST=127.0.0.1 MQTT_PORT=1883 PERSON_THRESHOLD=1 LED_PIN=7 python3 backend/mqtt/person_led_mqtt.py`
 
 ## Quick checks
 - RTSP sanity: `ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,profile,has_b_frames -of default=nw=1 rtsp://127.0.0.1:8554/ds-test`

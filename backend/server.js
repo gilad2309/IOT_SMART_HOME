@@ -80,7 +80,7 @@ function handleStart(req, res) {
     })
     .finally(() => {
       // Start LED notifier (MQTT -> GPIO). Must have permissions for GPIO; run server with sudo if required.
-      results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'bridge', 'person_led_mqtt.py')], {
+      results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'person_led_mqtt.py')], {
         env: {
           MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
           MQTT_PORT: process.env.MQTT_PORT || '1883',
@@ -194,7 +194,7 @@ server.listen(PORT, () => {
 });
 
 // Start data manager immediately on server launch.
-startProcess('data_manager', 'node', [path.join(BACKEND_DIR, 'data_manager.js')], {
+startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_manager.py')], {
   env: {
     MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
     UI_METRICS_PREFIX: process.env.UI_METRICS_PREFIX || 'ui/metrics',
@@ -207,7 +207,7 @@ startProcess('data_manager', 'node', [path.join(BACKEND_DIR, 'data_manager.js')]
 });
 
 // Start telemetry immediately on server launch.
-startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'telemetry', 'jetson_telemetry.py')], {
+startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'jetson_telemetry.py')], {
   env: {
     MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
     MQTT_PORT: process.env.MQTT_PORT || '1883',
@@ -218,7 +218,7 @@ startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'telemetry', 'jetso
 });
 
 // Start fake relay actuator emulator.
-startProcess('relay_emulator', 'node', [path.join(BACKEND_DIR, 'emulators', 'relay_emulator.js')], {
+startProcess('relay_emulator', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'relay_emulator.py')], {
   env: {
     MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
     RELAY_COMMAND_TOPIC: process.env.RELAY_COMMAND_TOPIC || 'actuator/relay',
