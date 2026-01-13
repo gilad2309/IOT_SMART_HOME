@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node backend/signaling_server.js",
     "data-manager": "node backend/data_manager.js",
+    "relay-emulator": "node backend/emulators/relay_emulator.js",
     "mqtt-broker": "node backend/mqtt_broker.js",
     "serve": "node backend/server.js"
   },

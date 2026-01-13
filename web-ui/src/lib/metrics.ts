@@ -2,7 +2,7 @@ import mqtt from 'mqtt/dist/mqtt';
 import type { MqttClient } from 'mqtt';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { AlarmLevel, ConnectionState } from '../types';
-import { getAlarmTopic, getMetricTopic, getMqttUrl } from './config';
+import { getAlarmTopic, getMetricTopic, getMqttUrl, getRelayStatusTopic } from './config';
 
 export interface MetricsState {
   count: number | null;
@@ -14,6 +14,7 @@ export interface MetricsState {
     gpu: AlarmLevel;
     temperature: AlarmLevel;
   };
+  relayState: 'on' | 'off' | 'unknown';
 }
 
 const initialMetrics: MetricsState = {
@@ -25,7 +26,8 @@ const initialMetrics: MetricsState = {
   alarm: {
     gpu: 'normal',
     temperature: 'normal'
-  }
+  },
+  relayState: 'unknown'
 };
 
 export function useMetrics(active: boolean) {
@@ -52,7 +54,8 @@ export function useMetrics(active: boolean) {
       person: getMetricTopic('person_count'),
       gpu: getMetricTopic('gpu_usage'),
       temp: getMetricTopic('temperature'),
-      alarm: getAlarmTopic()
+      alarm: getAlarmTopic(),
+      relay: getRelayStatusTopic()
     };
 
     setStatus('connecting');
@@ -107,6 +110,9 @@ export function useMetrics(active: boolean) {
               alarm: { ...prev.alarm, temperature: data.level }
             }));
           }
+        } else if (msgTopic === topics.relay && typeof data.state === 'string') {
+          const next = data.state === 'on' ? 'on' : 'off';
+          setMetrics((prev) => ({ ...prev, relayState: next }));
         }
       } catch (err) {
         setError('Bad MQTT payload');

@@ -217,6 +217,15 @@ startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'telemetry', 'jetso
   }
 });
 
+// Start fake relay actuator emulator.
+startProcess('relay_emulator', 'node', [path.join(BACKEND_DIR, 'emulators', 'relay_emulator.js')], {
+  env: {
+    MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
+    RELAY_COMMAND_TOPIC: process.env.RELAY_COMMAND_TOPIC || 'actuator/relay',
+    RELAY_STATUS_TOPIC: process.env.RELAY_STATUS_TOPIC || 'actuator/relay_status'
+  }
+});
+
 process.on('SIGINT', () => {
   Object.values(processes).forEach((child) => child.kill('SIGTERM'));
   process.exit(0);

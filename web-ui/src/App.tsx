@@ -21,6 +21,7 @@ export default function App() {
     temperature,
     gpuUpdatedAt,
     temperatureUpdatedAt,
+    relayState,
     alarm,
     status: mqttStatus,
     error: mqttError
@@ -119,6 +120,7 @@ export default function App() {
           gpuUpdatedAt={gpuUpdatedAt}
           temperatureUpdatedAt={temperatureUpdatedAt}
           alarm={alarm}
+          relayState={relayState}
         />
         </div>
       ) : (

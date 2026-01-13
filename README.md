@@ -42,6 +42,8 @@ Defaults you can override via env before `npm run serve`:
 - `UI_METRICS_PREFIX` (default ui/metrics), `UI_ALARM_TOPIC` (default ui/alarms)
 - `TEMP_WARN_C`/`TEMP_ALARM_C` (default 70/80), `GPU_WARN_PCT`/`GPU_ALARM_PCT` (default 85/95)
 - `PERSON_THRESHOLD` (default 1), `LED_PIN` (default BOARD 7), `LED_HOLD_SECONDS` (default 5)
+- `RELAY_COMMAND_TOPIC` (default actuator/relay), `RELAY_STATUS_TOPIC` (default actuator/relay_status)
+- `RELAY_ON_LEVEL` (default warning) controls when the Data Manager turns the relay on
 
 ## Manual run (if you prefer separate terminals)
 - DeepStream: `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt`
@@ -56,6 +58,7 @@ Defaults you can override via env before `npm run serve`:
 - MQTT messages: `mosquitto_sub -h mqtt-dashboard.com -p 1883 -V mqttv311 -t ui/metrics/person_count -v`
 - LED notifier logs: `logs/led_notifier.out.log` and `.err.log`
 - Telemetry logs: `logs/telemetry.out.log` and `.err.log`
+- Relay emulator logs: `logs/relay_emulator.out.log` and `.err.log`
 
 ## Notes
 - RTSP out: `rtsp://localhost:8554/ds-test`

@@ -5,11 +5,13 @@ const mqtt = require('mqtt');
 const MQTT_URL = process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883';
 const METRICS_PREFIX = process.env.UI_METRICS_PREFIX || 'ui/metrics';
 const ALARM_TOPIC = process.env.UI_ALARM_TOPIC || 'ui/alarms';
+const RELAY_COMMAND_TOPIC = process.env.RELAY_COMMAND_TOPIC || 'actuator/relay';
 
 const TEMP_WARN_C = Number(process.env.TEMP_WARN_C || 70);
 const TEMP_ALARM_C = Number(process.env.TEMP_ALARM_C || 80);
 const GPU_WARN_PCT = Number(process.env.GPU_WARN_PCT || 85);
 const GPU_ALARM_PCT = Number(process.env.GPU_ALARM_PCT || 95);
+const RELAY_ON_LEVEL = process.env.RELAY_ON_LEVEL || 'warning';
 
 const SOURCE_TOPICS = {
   people: 'deepstream/person_count',
@@ -19,7 +21,8 @@ const SOURCE_TOPICS = {
 
 const state = {
   tempLevel: 'normal',
-  gpuLevel: 'normal'
+  gpuLevel: 'normal',
+  relayState: 'off'
 };
 
 function toNumber(value) {
@@ -45,10 +48,26 @@ function publishAlarm(client, type, value, warn, alarm) {
     ts: Date.now()
   });
   client.publish(ALARM_TOPIC, payload, { qos: 0, retain: false });
+  maybeToggleRelay(client);
 }
 
 function forwardMetric(client, metric, payload) {
   client.publish(`${METRICS_PREFIX}/${metric}`, payload, { qos: 0, retain: false });
+}
+
+function shouldRelayBeOn() {
+  if (RELAY_ON_LEVEL === 'alarm') {
+    return state.tempLevel === 'alarm' || state.gpuLevel === 'alarm';
+  }
+  return state.tempLevel !== 'normal' || state.gpuLevel !== 'normal';
+}
+
+function maybeToggleRelay(client) {
+  const next = shouldRelayBeOn() ? 'on' : 'off';
+  if (next === state.relayState) return;
+  state.relayState = next;
+  const payload = JSON.stringify({ state: next, source: 'data_manager', ts: Date.now() });
+  client.publish(RELAY_COMMAND_TOPIC, payload, { qos: 0, retain: false });
 }
 
 const DEBUG = process.env.DATA_MANAGER_DEBUG === '1';

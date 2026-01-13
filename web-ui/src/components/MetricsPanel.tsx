@@ -11,6 +11,7 @@ interface Props {
     gpu: AlarmLevel;
     temperature: AlarmLevel;
   };
+  relayState: 'on' | 'off' | 'unknown';
 }
 
 function formatValue(value: number | null, unit: string) {
@@ -40,7 +41,8 @@ export function MetricsPanel({
   temperature,
   gpuUpdatedAt,
   temperatureUpdatedAt,
-  alarm
+  alarm,
+  relayState
 }: Props) {
   return (
     <div className="metrics-panel">
@@ -70,6 +72,9 @@ export function MetricsPanel({
           <span className={`pill ${alarmClass(alarm.temperature)}`}>
             Temp: {alarm.temperature}
           </span>
+        </div>
+        <div className="relay-status">
+          <span className={`pill relay ${relayState}`}>Relay: {relayState}</span>
         </div>
       </div>
     </div>
