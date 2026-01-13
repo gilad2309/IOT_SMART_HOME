@@ -53,7 +53,7 @@ LIBS+= -L$(LIB_INSTALL_DIR) -lnvdsgst_meta -lnvds_meta -lnvdsgst_helper -lnvdsgs
 
 CFLAGS+= $(shell pkg-config --cflags $(PKGS))
 
-LIBS+= $(shell pkg-config --libs $(PKGS))
+LIBS+= $(shell pkg-config --libs $(PKGS)) -lmosquitto
 
 all: $(APP)
 
@@ -71,4 +71,3 @@ install: $(APP)
 
 clean:
 	rm -rf $(OBJS) $(APP)
-

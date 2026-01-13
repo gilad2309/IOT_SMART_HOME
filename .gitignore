@@ -1,0 +1,7 @@
+backend/data/logs/
+logs/
+node_modules/
+web-ui/dist/
+__pycache__/
+*.o
+*.pyc

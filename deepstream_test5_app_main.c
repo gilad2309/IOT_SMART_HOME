@@ -39,6 +39,8 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
+#include <mosquitto.h>
+
 #include "gstnvdsmeta.h"
 #include "nvdsmeta_schema.h"
 
@@ -162,34 +164,57 @@ static AppConfigAnalyticsModel model_used = APP_CONFIG_ANALYTICS_MODELS_UNKNOWN;
 static struct timeval ota_request_time;
 static struct timeval ota_completion_time;
 
-/* Person count publishing over UDP (to be bridged to MQTT). */
+/* Person count publishing directly to MQTT. */
 #define PERSON_CLASS_ID 0
-#define PERSON_COUNT_UDP_PORT 50052
-static int person_count_sock = -1;
-static struct sockaddr_in person_count_addr;
+static struct mosquitto *person_mqtt = NULL;
+static gchar *person_mqtt_topic = NULL;
+static gboolean person_mqtt_started = FALSE;
 
 static void
-init_person_count_socket (void)
+init_person_count_mqtt (void)
 {
-  if (person_count_sock != -1)
+  if (person_mqtt_started)
     return;
-  person_count_sock = socket (AF_INET, SOCK_DGRAM, 0);
-  if (person_count_sock < 0) {
-    g_printerr ("[person_count] failed to create UDP socket: %s\n", strerror (errno));
+  person_mqtt_started = TRUE;
+
+  const gchar *host = g_getenv ("MQTT_HOST");
+  const gchar *port_str = g_getenv ("MQTT_PORT");
+  const gchar *topic = g_getenv ("MQTT_TOPIC");
+  const gchar *client_id = g_getenv ("MQTT_CLIENT_ID");
+  if (!host || !*host)
+    host = "mqtt-dashboard.com";
+  if (!topic || !*topic)
+    topic = "deepstream/person_count";
+  int port = 1883;
+  if (port_str && *port_str)
+    port = atoi (port_str);
+
+  mosquitto_lib_init ();
+  person_mqtt = mosquitto_new (client_id && *client_id ? client_id : NULL, true, NULL);
+  if (!person_mqtt) {
+    g_printerr ("[person_count] failed to create MQTT client\n");
     return;
   }
-  memset (&person_count_addr, 0, sizeof (person_count_addr));
-  person_count_addr.sin_family = AF_INET;
-  person_count_addr.sin_port = htons (PERSON_COUNT_UDP_PORT);
-  person_count_addr.sin_addr.s_addr = htonl (INADDR_LOOPBACK); /* 127.0.0.1 */
+  mosquitto_reconnect_delay_set (person_mqtt, 1, 10, true);
+  int rc = mosquitto_connect_async (person_mqtt, host, port, 60);
+  if (rc != MOSQ_ERR_SUCCESS) {
+    g_printerr ("[person_count] MQTT connect failed: %s\n", mosquitto_strerror (rc));
+    return;
+  }
+  rc = mosquitto_loop_start (person_mqtt);
+  if (rc != MOSQ_ERR_SUCCESS) {
+    g_printerr ("[person_count] MQTT loop start failed: %s\n", mosquitto_strerror (rc));
+    return;
+  }
+  person_mqtt_topic = g_strdup (topic);
 }
 
 static void
 publish_person_count (guint count, guint stream_id)
 {
-  if (person_count_sock == -1)
-    init_person_count_socket ();
-  if (person_count_sock < 0)
+  if (!person_mqtt_started)
+    init_person_count_mqtt ();
+  if (!person_mqtt || !person_mqtt_topic)
     return;
 
   gchar payload[128];
@@ -198,8 +223,10 @@ publish_person_count (guint count, guint stream_id)
       "{\"type\":\"person_count\",\"count\":%u,\"stream_id\":%u,\"ts\":%" G_GINT64_FORMAT "}",
       count, stream_id, now_ms);
   if (len > 0) {
-    sendto (person_count_sock, payload, len, 0,
-        (struct sockaddr *) &person_count_addr, sizeof (person_count_addr));
+    int rc = mosquitto_publish (person_mqtt, NULL, person_mqtt_topic, len, payload, 0, false);
+    if (rc != MOSQ_ERR_SUCCESS) {
+      g_printerr ("[person_count] MQTT publish failed: %s\n", mosquitto_strerror (rc));
+    }
     if (count > 0) {
       g_print ("[person_count] stream %u count=%u\n", stream_id, count);
     }

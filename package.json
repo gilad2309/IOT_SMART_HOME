@@ -5,7 +5,6 @@
   "main": "signaling_server.js",
   "scripts": {
     "start": "node backend/signaling_server.js",
-    "person-mqtt": "node backend/bridge/person_mqtt_bridge.js",
     "mqtt-broker": "node backend/mqtt_broker.js",
     "serve": "node backend/server.js"
   },

@@ -1,6 +1,6 @@
 // Simple local web server + pipeline orchestrator.
 // - Serves static files from repo root.
-// - POST /api/start starts DeepStream, MediaMTX, and the MQTT bridge (assumes Mosquitto on 1883/9001).
+// - POST /api/start starts DeepStream, MediaMTX, and the LED notifier (assumes Mosquitto on 1883/9001).
 // - GET /api/status returns running process info.
 
 const http = require('http');
@@ -78,13 +78,6 @@ function handleStart(req, res) {
       results.mediamtx = { status: 'failed_waiting_for_rtsp' };
     })
     .finally(() => {
-      // Start MQTT bridge (assumes broker on 1883/9001).
-      results.bridge = startProcess('mqtt_bridge', 'node', [path.join(BACKEND_DIR, 'bridge', 'person_mqtt_bridge.js')], {
-        env: {
-          MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
-          MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count'
-        }
-      });
       // Start LED notifier (MQTT -> GPIO). Must have permissions for GPIO; run server with sudo if required.
       results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'bridge', 'person_led_mqtt.py')], {
         env: {
@@ -153,7 +146,6 @@ function handleStop(req, res) {
   const stopped = {
     deepstream: stopProcess('deepstream'),
     mediamtx: stopProcess('mediamtx'),
-    mqtt_bridge: stopProcess('mqtt_bridge'),
     led_notifier: stopProcess('led_notifier')
   };
   res.writeHead(200, { 'Content-Type': 'application/json' });
