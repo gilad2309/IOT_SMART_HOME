@@ -21,6 +21,8 @@ export default function App() {
     temperature,
     gpuUpdatedAt,
     temperatureUpdatedAt,
+    gpuHistory,
+    temperatureHistory,
     relayState,
     alarm,
     status: mqttStatus,
@@ -119,6 +121,8 @@ export default function App() {
           temperature={temperature}
           gpuUpdatedAt={gpuUpdatedAt}
           temperatureUpdatedAt={temperatureUpdatedAt}
+          gpuHistory={gpuHistory}
+          temperatureHistory={temperatureHistory}
           alarm={alarm}
           relayState={relayState}
         />

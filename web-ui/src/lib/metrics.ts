@@ -10,6 +10,8 @@ export interface MetricsState {
   temperature: number | null;
   gpuUpdatedAt: number | null;
   temperatureUpdatedAt: number | null;
+  gpuHistory: Array<{ ts: number; value: number }>;
+  temperatureHistory: Array<{ ts: number; value: number }>;
   alarm: {
     gpu: AlarmLevel;
     temperature: AlarmLevel;
@@ -23,6 +25,8 @@ const initialMetrics: MetricsState = {
   temperature: null,
   gpuUpdatedAt: null,
   temperatureUpdatedAt: null,
+  gpuHistory: [],
+  temperatureHistory: [],
   alarm: {
     gpu: 'normal',
     temperature: 'normal'
@@ -87,16 +91,20 @@ export function useMetrics(active: boolean) {
         if (msgTopic === topics.person && typeof data.count === 'number') {
           setMetrics((prev) => ({ ...prev, count: data.count }));
         } else if (msgTopic === topics.gpu && typeof data.percent === 'number') {
+          const ts = typeof data.ts === 'number' ? data.ts : Date.now();
           setMetrics((prev) => ({
             ...prev,
             gpuUsage: data.percent,
-            gpuUpdatedAt: typeof data.ts === 'number' ? data.ts : Date.now()
+            gpuUpdatedAt: ts,
+            gpuHistory: trimHistory(prev.gpuHistory, { ts, value: data.percent })
           }));
         } else if (msgTopic === topics.temp && typeof data.celsius === 'number') {
+          const ts = typeof data.ts === 'number' ? data.ts : Date.now();
           setMetrics((prev) => ({
             ...prev,
             temperature: data.celsius,
-            temperatureUpdatedAt: typeof data.ts === 'number' ? data.ts : Date.now()
+            temperatureUpdatedAt: ts,
+            temperatureHistory: trimHistory(prev.temperatureHistory, { ts, value: data.celsius })
           }));
         } else if (msgTopic === topics.alarm && typeof data.type === 'string') {
           if (data.type === 'gpu_usage' && data.level) {
@@ -140,4 +148,14 @@ export function useMetrics(active: boolean) {
   }, [active]);
 
   return { ...metrics, status, error };
+}
+
+function trimHistory(
+  history: Array<{ ts: number; value: number }>,
+  next: { ts: number; value: number },
+  limit = 720
+) {
+  const updated = [...history, next];
+  if (updated.length <= limit) return updated;
+  return updated.slice(updated.length - limit);
 }
