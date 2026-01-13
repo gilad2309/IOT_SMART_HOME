@@ -2,7 +2,7 @@ import mqtt from 'mqtt/dist/mqtt';
 import type { MqttClient } from 'mqtt';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { ConnectionState } from '../types';
-import { getMqttTopic, getMqttUrl } from './config';
+import { getMetricTopic, getMqttUrl } from './config';
 
 export function usePersonCount(active: boolean) {
   const [count, setCount] = useState<number | null>(null);
@@ -24,7 +24,7 @@ export function usePersonCount(active: boolean) {
     }
 
     const url = getMqttUrl();
-    const topic = getMqttTopic();
+    const topic = getMetricTopic('person_count');
     setStatus('connecting');
     setError(null);
 

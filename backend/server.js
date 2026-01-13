@@ -16,6 +16,7 @@ const LOG_DIR = path.join(BACKEND_DIR, 'data', 'logs');
 const PORT = 8081;
 
 const processes = {};
+const pipelineProcesses = new Set(['deepstream', 'mediamtx', 'led_notifier']);
 const routes = new Map();
 
 const mime = {
@@ -95,7 +96,11 @@ function handleStart(req, res) {
 }
 
 function handleStatus(req, res) {
-  const status = Object.fromEntries(Object.entries(processes).map(([name, child]) => [name, { pid: child.pid }]));
+  const status = Object.fromEntries(
+    Object.entries(processes)
+      .filter(([name]) => pipelineProcesses.has(name))
+      .map(([name, child]) => [name, { pid: child.pid }])
+  );
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ running: status }));
 }
@@ -186,6 +191,30 @@ server.listen(PORT, () => {
   console.log(`Local server running on http://127.0.0.1:${PORT}`);
   console.log(`Serving static files from ${UI_ROOT} (then ${BASE_DIR} fallback)`);
   console.log('Endpoints: POST /api/start, GET /api/status');
+});
+
+// Start data manager immediately on server launch.
+startProcess('data_manager', 'node', [path.join(BACKEND_DIR, 'data_manager.js')], {
+  env: {
+    MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
+    UI_METRICS_PREFIX: process.env.UI_METRICS_PREFIX || 'ui/metrics',
+    UI_ALARM_TOPIC: process.env.UI_ALARM_TOPIC || 'ui/alarms',
+    TEMP_WARN_C: process.env.TEMP_WARN_C || '70',
+    TEMP_ALARM_C: process.env.TEMP_ALARM_C || '80',
+    GPU_WARN_PCT: process.env.GPU_WARN_PCT || '85',
+    GPU_ALARM_PCT: process.env.GPU_ALARM_PCT || '95'
+  }
+});
+
+// Start telemetry immediately on server launch.
+startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'telemetry', 'jetson_telemetry.py')], {
+  env: {
+    MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
+    MQTT_PORT: process.env.MQTT_PORT || '1883',
+    MQTT_CLIENT_ID: process.env.MQTT_CLIENT_ID || 'jetson-telemetry',
+    MQTT_QOS: process.env.MQTT_QOS || '0',
+    TELEMETRY_INTERVAL_SECONDS: process.env.TELEMETRY_INTERVAL_SECONDS || '5'
+  }
 });
 
 process.on('SIGINT', () => {

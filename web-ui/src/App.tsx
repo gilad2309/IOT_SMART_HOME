@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { ControlBar } from './components/ControlBar';
+import { MetricsPanel } from './components/MetricsPanel';
 import { StatusHeader } from './components/StatusHeader';
 import { VideoPane } from './components/VideoPane';
 import { fetchStatus, startPipeline, stopPipeline } from './lib/api';
-import { usePersonCount } from './lib/personCount';
+import { useMetrics } from './lib/metrics';
 import { PipelineState, StatusResponse, StreamState } from './types';
 
 export default function App() {
@@ -11,11 +12,19 @@ export default function App() {
   const [videoState, setVideoState] = useState<StreamState>('idle');
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [view, setView] = useState<'stream' | 'metrics'>('stream');
 
   const host = useMemo(() => window.location.host, []);
-  const { count, status: mqttStatus, error: mqttError } = usePersonCount(
-    pipelineState === 'streaming'
-  );
+  const {
+    count,
+    gpuUsage,
+    temperature,
+    gpuUpdatedAt,
+    temperatureUpdatedAt,
+    alarm,
+    status: mqttStatus,
+    error: mqttError
+  } = useMetrics(true);
 
   useEffect(() => {
     let cancelled = false;
@@ -77,6 +86,20 @@ export default function App() {
         host={host}
         lastUpdated={lastUpdated}
       />
+      <div className="view-toggle">
+        <button
+          className={view === 'stream' ? 'primary' : 'secondary'}
+          onClick={() => setView('stream')}
+        >
+          Live Stream
+        </button>
+        <button
+          className={view === 'metrics' ? 'primary' : 'secondary'}
+          onClick={() => setView('metrics')}
+        >
+          Live Metrics
+        </button>
+      </div>
       <div className="card">
         <ControlBar
           state={pipelineState}
@@ -87,11 +110,24 @@ export default function App() {
           mqttState={mqttStatus}
         />
       </div>
-      <VideoPane
-        active={pipelineState === 'streaming'}
-        onStatusChange={setVideoState}
-        personCount={count}
-      />
+      {view === 'metrics' ? (
+        <div className="card">
+        <MetricsPanel
+          count={count}
+          gpuUsage={gpuUsage}
+          temperature={temperature}
+          gpuUpdatedAt={gpuUpdatedAt}
+          temperatureUpdatedAt={temperatureUpdatedAt}
+          alarm={alarm}
+        />
+        </div>
+      ) : (
+        <VideoPane
+          active={pipelineState === 'streaming'}
+          onStatusChange={setVideoState}
+          personCount={count}
+        />
+      )}
     </div>
   );
 }

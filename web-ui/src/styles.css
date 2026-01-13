@@ -47,6 +47,11 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.view-toggle {
+  display: flex;
+  gap: 10px;
+}
+
 button {
   border: none;
   border-radius: 12px;

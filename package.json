@@ -5,6 +5,7 @@
   "main": "signaling_server.js",
   "scripts": {
     "start": "node backend/signaling_server.js",
+    "data-manager": "node backend/data_manager.js",
     "mqtt-broker": "node backend/mqtt_broker.js",
     "serve": "node backend/server.js"
   },

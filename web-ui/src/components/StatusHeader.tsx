@@ -21,7 +21,7 @@ export function StatusHeader({ pipelineState, videoState, mqttState, host, lastU
     <header className="status-header">
       <div>
         <div className="eyebrow">DeepStream Control</div>
-        <h1>RTSP → WebRTC</h1>
+        <h1>Smart surveillance system</h1>
       </div>
       <div className="status-badges">
         <span className="badge">
