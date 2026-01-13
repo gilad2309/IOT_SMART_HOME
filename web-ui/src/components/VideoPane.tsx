@@ -94,11 +94,6 @@ export function VideoPane({ active, personCount, onStatusChange }: Props) {
               muted
               playsInline
             />
-            <div className="placeholder-copy">
-              <div className="pill ghost">Stream offline</div>
-              <div className="title">DeepStream Surveillance</div>
-              <div className="subtitle">Start the pipeline to begin streaming</div>
-            </div>
           </div>
         )}
         <div className={`live-pill ${status === 'streaming' ? 'on' : ''}`}>

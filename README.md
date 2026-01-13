@@ -10,6 +10,7 @@ End-to-end flow: DeepStream runs YOLO, publishes RTSP, and sends person counts d
 - Node.js + npm installed (for server and UI).
 - libmosquitto headers (for building DeepStream MQTT publisher): `sudo apt-get install -y libmosquitto-dev`
 - Python 3 with `Jetson.GPIO` and `paho-mqtt` (for LED notifier + data manager + relay emulator): `sudo apt-get install python3-pip python3-paho-mqtt` (Jetson.GPIO is available on Jetson images).
+- DynamoDB client (AWS cloud DB): `python3 -m pip install boto3`
 - GPIO wiring: LED on BOARD pin 7 (default) with resistor to GND. Run the server with sudo so GPIO access works.
 
 ## Install (first time)
@@ -44,6 +45,14 @@ Defaults you can override via env before `npm run serve`:
 - `PERSON_THRESHOLD` (default 1), `LED_PIN` (default BOARD 7), `LED_HOLD_SECONDS` (default 5)
 - `RELAY_COMMAND_TOPIC` (default actuator/relay), `RELAY_STATUS_TOPIC` (default actuator/relay_status)
 - `RELAY_ON_LEVEL` (default warning) controls when the Data Manager turns the relay on
+- `DDB_ENABLED` (set to 1 to enable), `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
+  `DDB_METRICS_TABLE`, `DDB_ALARMS_TABLE`
+
+Enable/disable DynamoDB via flags:
+```bash
+npm run serve -- --ddb
+npm run serve -- --no-ddb
+```
 
 ## Manual run (if you prefer separate terminals)
 - DeepStream: `./deepstream-test5-app -c configs/DeepStream-Yolo/deepstream_app_config.txt`
@@ -59,6 +68,21 @@ Defaults you can override via env before `npm run serve`:
 - LED notifier logs: `logs/led_notifier.out.log` and `.err.log`
 - Telemetry logs: `logs/telemetry.out.log` and `.err.log`
 - Relay emulator logs: `logs/relay_emulator.out.log` and `.err.log`
+
+## DynamoDB setup (cloud DB)
+Create tables:
+- `metrics` with partition key `metric` (String) and sort key `ts` (Number)
+- `alarms` with partition key `type` (String) and sort key `ts` (Number)
+
+Set env vars:
+```bash
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_REGION=us-east-1
+export DDB_METRICS_TABLE=metrics
+export DDB_ALARMS_TABLE=alarms
+export DDB_ENABLED=1
+```
 
 ## Notes
 - RTSP out: `rtsp://localhost:8554/ds-test`

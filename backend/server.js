@@ -17,6 +17,14 @@ const PORT = 8081;
 
 const processes = {};
 const pipelineProcesses = new Set(['deepstream', 'mediamtx', 'led_notifier']);
+
+function parseFlags(argv) {
+  return new Set(argv.filter((arg) => arg.startsWith('--')));
+}
+
+const flags = parseFlags(process.argv.slice(2));
+const ddbFlag =
+  flags.has('--ddb') ? '1' : flags.has('--no-ddb') ? '0' : process.env.DDB_ENABLED;
 const routes = new Map();
 
 const mime = {
@@ -202,7 +210,11 @@ startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_ma
     TEMP_WARN_C: process.env.TEMP_WARN_C || '70',
     TEMP_ALARM_C: process.env.TEMP_ALARM_C || '80',
     GPU_WARN_PCT: process.env.GPU_WARN_PCT || '85',
-    GPU_ALARM_PCT: process.env.GPU_ALARM_PCT || '95'
+    GPU_ALARM_PCT: process.env.GPU_ALARM_PCT || '95',
+    DDB_ENABLED: ddbFlag || '0',
+    AWS_REGION: process.env.AWS_REGION,
+    DDB_METRICS_TABLE: process.env.DDB_METRICS_TABLE || 'metrics',
+    DDB_ALARMS_TABLE: process.env.DDB_ALARMS_TABLE || 'alarms'
   }
 });
 
