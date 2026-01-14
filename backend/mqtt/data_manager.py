@@ -13,6 +13,7 @@ MQTT_URL = os.getenv("MQTT_URL", "mqtt://mqtt-dashboard.com:1883")
 UI_METRICS_PREFIX = os.getenv("UI_METRICS_PREFIX", "ui/metrics")
 UI_ALARM_TOPIC = os.getenv("UI_ALARM_TOPIC", "ui/alarms")
 RELAY_COMMAND_TOPIC = os.getenv("RELAY_COMMAND_TOPIC", "actuator/relay")
+LED_TOGGLE_TOPIC = os.getenv("LED_TOGGLE_TOPIC", "actuator/led_toggle")
 
 TEMP_WARN_C = float(os.getenv("TEMP_WARN_C", "70"))
 TEMP_ALARM_C = float(os.getenv("TEMP_ALARM_C", "80"))
@@ -35,6 +36,7 @@ state = {
     "tempLevel": "normal",
     "gpuLevel": "normal",
     "relayState": "off",
+    "ledState": "idle",
 }
 
 person_accumulator = {
@@ -117,14 +119,23 @@ def maybe_toggle_relay(client):
     client.publish(RELAY_COMMAND_TOPIC, payload, qos=0, retain=False)
 
 
+def maybe_toggle_led(client, count: int):
+    next_state = "toggle" if count >= 1 else "idle"
+    state["ledState"] = next_state
+    payload = json.dumps({"state": next_state, "source": "data_manager", "ts": int(time.time() * 1000)})
+    client.publish(LED_TOGGLE_TOPIC, payload, qos=0, retain=False)
+
+
 def publish_person_count_average(client):
     if person_accumulator["count"] == 0:
         return
     avg = person_accumulator["sum"] / person_accumulator["count"]
     person_accumulator["sum"] = 0.0
     person_accumulator["count"] = 0
-    payload = json.dumps({"type": "person_count", "count": round_half_down(avg), "ts": int(time.time() * 1000)})
+    rounded = round_half_down(avg)
+    payload = json.dumps({"type": "person_count", "count": rounded, "ts": int(time.time() * 1000)})
     forward_metric(client, "person_count", payload)
+    maybe_toggle_led(client, rounded)
 
 
 def normalize_for_ddb(value):

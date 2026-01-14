@@ -92,8 +92,7 @@ function handleStart(req, res) {
         env: {
           MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
           MQTT_PORT: process.env.MQTT_PORT || '1883',
-          MQTT_TOPIC: process.env.MQTT_TOPIC || 'deepstream/person_count',
-          PERSON_THRESHOLD: process.env.PERSON_THRESHOLD || '1',
+          LED_TOGGLE_TOPIC: process.env.LED_TOGGLE_TOPIC || 'actuator/led_toggle',
           LED_PIN: process.env.LED_PIN || '7',
           LED_HOLD_SECONDS: process.env.LED_HOLD_SECONDS || '5'
         }

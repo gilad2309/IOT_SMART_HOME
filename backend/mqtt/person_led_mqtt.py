@@ -1,6 +1,6 @@
 """
 Minimal MQTT-to-LED trigger using the same Jetson.GPIO pattern you verified.
-Turns LED on for HOLD_SECONDS when count >= PERSON_THRESHOLD.
+Toggles LED on "toggle" command and turns off on "idle".
 """
 
 import json
@@ -17,8 +17,7 @@ import paho.mqtt.client as mqtt
 # Config
 BROKER_HOST = os.getenv("MQTT_HOST", "127.0.0.1")
 BROKER_PORT = int(os.getenv("MQTT_PORT", "1883"))
-TOPIC = os.getenv("MQTT_TOPIC", "deepstream/person_count")
-THRESHOLD = float(os.getenv("PERSON_THRESHOLD", "3"))
+TOPIC = os.getenv("LED_TOGGLE_TOPIC", "actuator/led_toggle")
 HOLD_SECONDS = float(os.getenv("LED_HOLD_SECONDS", "5"))
 LED_PIN = int(os.getenv("LED_PIN", "7"))  # BOARD pin number, like your test
 
@@ -82,15 +81,14 @@ def cleanup():
 def on_message(client, userdata, msg):
     try:
         data = json.loads(msg.payload.decode("utf-8"))
-        count = data.get("count", data.get("person_count", 0))
-        count_val = float(count)
+        state = data.get("state")
     except Exception:
         return
-    if count_val >= THRESHOLD:
-        print(f"[MQTT] count={count_val} >= {THRESHOLD} → LED BLINK {HOLD_SECONDS}s window")
+    if state == "toggle":
+        print(f"[MQTT] state=toggle → LED BLINK {HOLD_SECONDS}s window")
         blink_for_duration(HOLD_SECONDS, period=0.5)
     else:
-        print(f"[MQTT] count={count_val} < {THRESHOLD} → stop")
+        print("[MQTT] state=idle → stop")
         stop_blink.set()
         set_led(False)
 
