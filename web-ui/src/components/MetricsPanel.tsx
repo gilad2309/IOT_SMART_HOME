@@ -18,7 +18,7 @@ interface Props {
 }
 
 function formatValue(value: number | null, unit: string) {
-  if (value === null || Number.isNaN(value)) return '—';
+  if (value === null || Number.isNaN(value)) return '-';
   return `${value.toFixed(1)}${unit}`;
 }
 
@@ -56,7 +56,7 @@ export function MetricsPanel({
         <div className="metrics-grid">
           <div className="metric">
             <div className="label">People Count</div>
-            <div className="value">{count ?? 0}</div>
+            <div className="value">{count === null ? '-' : count}</div>
           </div>
           <div className={`metric ${alarmClass(alarm.gpu)}`}>
             <div className="label">GPU Usage</div>

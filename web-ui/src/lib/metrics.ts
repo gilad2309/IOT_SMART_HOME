@@ -136,6 +136,7 @@ export function useMetrics(active: boolean) {
     client.on('close', () => {
       if (disposed) return;
       setStatus((prev) => (prev === 'error' ? 'error' : 'idle'));
+      setMetrics(initialMetrics);
     });
 
     return () => {

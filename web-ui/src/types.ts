@@ -9,4 +9,8 @@ export interface ProcessStatus {
 
 export interface StatusResponse {
   running: Record<string, ProcessStatus>;
+  cloud?: {
+    provider: 'dynamodb';
+    status: 'on' | 'off' | 'error';
+  };
 }

@@ -6,8 +6,21 @@
   flex-wrap: wrap;
 }
 
+.title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .status-header h1 {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: 24px;
   letter-spacing: 0.02em;
 }
@@ -67,6 +80,20 @@
 }
 
 .dot.error {
+  background: var(--danger);
+  box-shadow: 0 0 0 8px rgba(242, 72, 72, 0.12);
+}
+
+.dot.cloud-on {
+  background: var(--accent);
+  box-shadow: 0 0 0 8px rgba(56, 217, 150, 0.12);
+}
+
+.dot.cloud-off {
+  background: var(--muted);
+}
+
+.dot.cloud-error {
   background: var(--danger);
   box-shadow: 0 0 0 8px rgba(242, 72, 72, 0.12);
 }

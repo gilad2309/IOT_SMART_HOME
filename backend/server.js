@@ -109,8 +109,10 @@ function handleStatus(req, res) {
       .filter(([name]) => pipelineProcesses.has(name))
       .map(([name, child]) => [name, { pid: child.pid }])
   );
+  const ddbEnabled = ddbFlag === '1';
+  const cloudStatus = ddbEnabled ? (processes.data_manager ? 'on' : 'error') : 'off';
   res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ running: status }));
+  res.end(JSON.stringify({ running: status, cloud: { provider: 'dynamodb', status: cloudStatus } }));
 }
 
 routes.set('POST /api/start', handleStart);

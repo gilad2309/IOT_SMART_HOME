@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { ControlBar } from './components/ControlBar';
 import { MetricsPanel } from './components/MetricsPanel';
 import { StatusHeader } from './components/StatusHeader';
@@ -11,10 +11,9 @@ export default function App() {
   const [pipelineState, setPipelineState] = useState<PipelineState>('idle');
   const [videoState, setVideoState] = useState<StreamState>('idle');
   const [error, setError] = useState<string | null>(null);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [view, setView] = useState<'stream' | 'metrics'>('stream');
+  const [cloudStatus, setCloudStatus] = useState<'on' | 'off' | 'error' | null>(null);
 
-  const host = useMemo(() => window.location.host, []);
   const {
     count,
     gpuUsage,
@@ -28,6 +27,7 @@ export default function App() {
     status: mqttStatus,
     error: mqttError
   } = useMetrics(true);
+  const displayCount = pipelineState === 'streaming' ? count : null;
 
   useEffect(() => {
     let cancelled = false;
@@ -37,7 +37,7 @@ export default function App() {
         if (cancelled) return;
         const nextState = deriveState(status);
         setPipelineState((prev) => (prev === 'starting' && nextState === 'idle' ? prev : nextState));
-        setLastUpdated(new Date());
+        setCloudStatus(status.cloud?.status ?? null);
         setError(null);
       } catch (err) {
         if (!cancelled) {
@@ -86,8 +86,7 @@ export default function App() {
         pipelineState={pipelineState}
         videoState={videoState}
         mqttState={mqttStatus}
-        host={host}
-        lastUpdated={lastUpdated}
+        cloudStatus={cloudStatus}
       />
       <div className="view-toggle">
         <button
@@ -115,9 +114,9 @@ export default function App() {
       </div>
       {view === 'metrics' ? (
         <div className="card">
-        <MetricsPanel
-          count={count}
-          gpuUsage={gpuUsage}
+          <MetricsPanel
+            count={displayCount}
+            gpuUsage={gpuUsage}
           temperature={temperature}
           gpuUpdatedAt={gpuUpdatedAt}
           temperatureUpdatedAt={temperatureUpdatedAt}
@@ -131,7 +130,7 @@ export default function App() {
         <VideoPane
           active={pipelineState === 'streaming'}
           onStatusChange={setVideoState}
-          personCount={count}
+          personCount={displayCount}
         />
       )}
     </div>
