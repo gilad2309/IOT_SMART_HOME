@@ -34,7 +34,7 @@ const initialMetrics: MetricsState = {
   relayState: 'unknown'
 };
 
-export function useMetrics(active: boolean) {
+export function useMetrics(active: boolean, focusMode = false) {
   const [metrics, setMetrics] = useState<MetricsState>(initialMetrics);
   const [status, setStatus] = useState<ConnectionState>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -90,7 +90,10 @@ export function useMetrics(active: boolean) {
         const data = JSON.parse(payload.toString());
         if (msgTopic === topics.person && typeof data.count === 'number') {
           setMetrics((prev) => ({ ...prev, count: data.count }));
-        } else if (msgTopic === topics.gpu && typeof data.percent === 'number') {
+          return;
+        }
+        if (focusMode) return;
+        if (msgTopic === topics.gpu && typeof data.percent === 'number') {
           const ts = typeof data.ts === 'number' ? data.ts : Date.now();
           setMetrics((prev) => ({
             ...prev,
@@ -146,7 +149,7 @@ export function useMetrics(active: boolean) {
         clientRef.current = null;
       }
     };
-  }, [active]);
+  }, [active, focusMode]);
 
   return { ...metrics, status, error };
 }

@@ -13,4 +13,5 @@ export interface StatusResponse {
     provider: 'dynamodb';
     status: 'on' | 'off' | 'error';
   };
+  nativeMode?: boolean;
 }

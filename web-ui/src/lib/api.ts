@@ -21,3 +21,10 @@ export async function fetchStatus(): Promise<StatusResponse> {
   }
   return res.json();
 }
+
+export async function setNativeMode(enabled: boolean): Promise<void> {
+  const res = await fetch(`/api/native/${enabled ? 'on' : 'off'}`, { method: 'POST' });
+  if (!res.ok) {
+    throw new Error(`Native mode failed: ${res.status} ${res.statusText}`);
+  }
+}

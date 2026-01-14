@@ -3,7 +3,7 @@ import { ControlBar } from './components/ControlBar';
 import { MetricsPanel } from './components/MetricsPanel';
 import { StatusHeader } from './components/StatusHeader';
 import { VideoPane } from './components/VideoPane';
-import { fetchStatus, startPipeline, stopPipeline } from './lib/api';
+import { fetchStatus, setNativeMode, startPipeline, stopPipeline } from './lib/api';
 import { useMetrics } from './lib/metrics';
 import { PipelineState, StatusResponse, StreamState } from './types';
 
@@ -13,6 +13,8 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [view, setView] = useState<'stream' | 'metrics'>('stream');
   const [cloudStatus, setCloudStatus] = useState<'on' | 'off' | 'error' | null>(null);
+  const [focusMode, setFocusMode] = useState(false);
+  const [nativeMode, setNativeModeState] = useState(false);
 
   const {
     count,
@@ -26,11 +28,16 @@ export default function App() {
     alarm,
     status: mqttStatus,
     error: mqttError
-  } = useMetrics(true);
+  } = useMetrics(true, focusMode);
   const displayCount = pipelineState === 'streaming' ? count : null;
 
   useEffect(() => {
     let cancelled = false;
+    if (focusMode) {
+      return () => {
+        cancelled = true;
+      };
+    }
     const poll = async () => {
       try {
         const status = await fetchStatus();
@@ -52,7 +59,7 @@ export default function App() {
       cancelled = true;
       clearInterval(id);
     };
-  }, []);
+  }, [focusMode]);
 
   const handleStart = async () => {
     setError(null);
@@ -79,6 +86,38 @@ export default function App() {
   };
 
   const helperError = error || mqttError;
+  const handleNativeToggle = async (enabled: boolean) => {
+    setError(null);
+    setNativeModeState(enabled);
+    try {
+      await setNativeMode(enabled);
+      if (enabled) {
+        setVideoState('idle');
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Native mode failed');
+    }
+  };
+
+  if (focusMode) {
+    return (
+      <div className="page focus-mode">
+        {nativeMode ? (
+          <div className="card">
+            <div className="eyebrow">Live Stream</div>
+            <div className="helper">Native mode active — web stream disabled.</div>
+          </div>
+        ) : (
+          <VideoPane
+            active={pipelineState === 'streaming' && !nativeMode}
+            onStatusChange={setVideoState}
+            onFullscreenChange={setFocusMode}
+            personCount={displayCount}
+          />
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="page">
@@ -107,6 +146,8 @@ export default function App() {
           state={pipelineState}
           onStart={handleStart}
           onStop={handleStop}
+          onToggleNative={handleNativeToggle}
+          nativeMode={nativeMode}
           disabled={pipelineState === 'starting'}
           error={helperError}
           mqttState={mqttStatus}
@@ -126,10 +167,16 @@ export default function App() {
           relayState={relayState}
         />
         </div>
+      ) : nativeMode ? (
+        <div className="card">
+          <div className="eyebrow">Live Stream</div>
+          <div className="helper">Native mode active — web stream disabled.</div>
+        </div>
       ) : (
         <VideoPane
-          active={pipelineState === 'streaming'}
+          active={pipelineState === 'streaming' && !nativeMode}
           onStatusChange={setVideoState}
+          onFullscreenChange={setFocusMode}
           personCount={displayCount}
         />
       )}

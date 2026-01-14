@@ -7,9 +7,10 @@ interface Props {
   active: boolean;
   personCount: number | null;
   onStatusChange?: (state: StreamState) => void;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
-export function VideoPane({ active, personCount, onStatusChange }: Props) {
+export function VideoPane({ active, personCount, onStatusChange, onFullscreenChange }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const frameRef = useRef<HTMLDivElement | null>(null);
   const pcRef = useRef<RTCPeerConnection | null>(null);
@@ -82,11 +83,13 @@ export function VideoPane({ active, personCount, onStatusChange }: Props) {
 
   useEffect(() => {
     const handleChange = () => {
-      setIsFullscreen(document.fullscreenElement === frameRef.current);
+      const next = document.fullscreenElement === frameRef.current;
+      setIsFullscreen(next);
+      onFullscreenChange?.(next);
     };
     document.addEventListener('fullscreenchange', handleChange);
     return () => document.removeEventListener('fullscreenchange', handleChange);
-  }, []);
+  }, [onFullscreenChange]);
 
   const showPlaceholder = status !== 'streaming';
   const handleFullscreen = () => {

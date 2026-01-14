@@ -5,12 +5,23 @@ interface Props {
   state: PipelineState;
   onStart: () => Promise<void>;
   onStop: () => Promise<void>;
+  onToggleNative: (enabled: boolean) => Promise<void>;
+  nativeMode: boolean;
   disabled?: boolean;
   error?: string | null;
   mqttState: ConnectionState;
 }
 
-export function ControlBar({ state, onStart, onStop, disabled, error, mqttState }: Props) {
+export function ControlBar({
+  state,
+  onStart,
+  onStop,
+  onToggleNative,
+  nativeMode,
+  disabled,
+  error,
+  mqttState
+}: Props) {
   const isBusy = disabled || state === 'starting';
   return (
     <div className="control-bar">
@@ -30,6 +41,13 @@ export function ControlBar({ state, onStart, onStop, disabled, error, mqttState 
             onClick={onStop}
           >
             Stop
+          </button>
+          <button
+            className="secondary"
+            disabled={isBusy || state === 'idle'}
+            onClick={() => onToggleNative(!nativeMode)}
+          >
+            {nativeMode ? 'Switch to Web' : 'Switch to Native'}
           </button>
         </div>
       </div>

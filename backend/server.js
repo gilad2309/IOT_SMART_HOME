@@ -7,16 +7,24 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const net = require('net');
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 
 const BACKEND_DIR = __dirname;
 const BASE_DIR = path.join(__dirname, '..');
 const UI_ROOT = path.join(BASE_DIR, 'web-ui', 'dist');
 const LOG_DIR = path.join(BACKEND_DIR, 'data', 'logs');
 const PORT = 8081;
+const CONFIG_WEB = path.join(BACKEND_DIR, 'deepstream', 'configs/DeepStream-Yolo/deepstream_app_config.txt');
+const CONFIG_NATIVE = path.join(
+  BACKEND_DIR,
+  'deepstream',
+  'configs/DeepStream-Yolo/deepstream_app_config_native.txt'
+);
 
 const processes = {};
 const pipelineProcesses = new Set(['deepstream', 'mediamtx', 'led_notifier']);
+let nativeMode = false;
+let suppressAutoSwitch = false;
 
 function parseFlags(argv) {
   return new Set(argv.filter((arg) => arg.startsWith('--')));
@@ -43,6 +51,24 @@ function ensureLogDir() {
   if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR);
 }
 
+function killByPattern(pattern) {
+  try {
+    spawnSync('pkill', ['-f', pattern], { stdio: 'ignore' });
+  } catch {
+    // Best-effort cleanup.
+  }
+}
+
+function stopAllDeepstream() {
+  stopProcess('deepstream');
+  killByPattern('deepstream-test5-app');
+}
+
+function stopAllMediamtx() {
+  stopProcess('mediamtx');
+  killByPattern('mediamtx');
+}
+
 function startProcess(name, cmd, args, opts = {}) {
   if (processes[name]) return { status: 'already_running', pid: processes[name].pid };
   ensureLogDir();
@@ -59,21 +85,44 @@ function startProcess(name, cmd, args, opts = {}) {
     delete processes[name];
     const msg = `[${name}] exited code=${code} signal=${signal}\n`;
     fs.appendFileSync(path.join(LOG_DIR, `${name}.err.log`), msg);
+    if (name === 'deepstream' && nativeMode && !suppressAutoSwitch) {
+      switchToWebModeFromNative();
+    }
   });
   return { status: 'started', pid: child.pid };
 }
 
 function handleStart(req, res) {
   const results = {};
+  stopAllDeepstream();
+  stopAllMediamtx();
   // DeepStream first.
   results.deepstream = startProcess(
     'deepstream',
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
-    ['-c', path.join(BACKEND_DIR, 'deepstream', 'configs/DeepStream-Yolo/deepstream_app_config.txt')],
+    ['-c', nativeMode ? CONFIG_NATIVE : CONFIG_WEB],
     { cwd: path.join(BACKEND_DIR, 'deepstream') }
   );
 
-  // Wait for RTSP 8554 to be reachable before starting MediaMTX.
+  const finish = () => {
+    results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'person_led_mqtt.py')], {
+      env: {
+        MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
+        MQTT_PORT: process.env.MQTT_PORT || '1883',
+        LED_TOGGLE_TOPIC: process.env.LED_TOGGLE_TOPIC || 'actuator/led_toggle',
+        LED_PIN: process.env.LED_PIN || '7',
+        LED_HOLD_SECONDS: process.env.LED_HOLD_SECONDS || '5'
+      }
+    });
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true, results }));
+  };
+
+  if (nativeMode) {
+    finish();
+    return;
+  }
+
   waitForPort(8554, '127.0.0.1', 15000)
     .then(() => {
       results.mediamtx = startProcess(
@@ -86,20 +135,7 @@ function handleStart(req, res) {
     .catch(() => {
       results.mediamtx = { status: 'failed_waiting_for_rtsp' };
     })
-    .finally(() => {
-      // Start LED notifier (MQTT -> GPIO). Must have permissions for GPIO; run server with sudo if required.
-      results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'person_led_mqtt.py')], {
-        env: {
-          MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
-          MQTT_PORT: process.env.MQTT_PORT || '1883',
-          LED_TOGGLE_TOPIC: process.env.LED_TOGGLE_TOPIC || 'actuator/led_toggle',
-          LED_PIN: process.env.LED_PIN || '7',
-          LED_HOLD_SECONDS: process.env.LED_HOLD_SECONDS || '5'
-        }
-      });
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ ok: true, results }));
-    });
+    .finally(finish);
 }
 
 function handleStatus(req, res) {
@@ -111,11 +147,19 @@ function handleStatus(req, res) {
   const ddbEnabled = ddbFlag === '1';
   const cloudStatus = ddbEnabled ? (processes.data_manager ? 'on' : 'error') : 'off';
   res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ running: status, cloud: { provider: 'dynamodb', status: cloudStatus } }));
+  res.end(
+    JSON.stringify({
+      running: status,
+      cloud: { provider: 'dynamodb', status: cloudStatus },
+      nativeMode
+    })
+  );
 }
 
 routes.set('POST /api/start', handleStart);
 routes.set('POST /api/stop', handleStop);
+routes.set('POST /api/native/on', handleNativeOn);
+routes.set('POST /api/native/off', handleNativeOff);
 routes.set('GET /api/status', handleStatus);
 
 function waitForPort(port, host, timeoutMs) {
@@ -157,13 +201,93 @@ function stopProcess(name) {
 }
 
 function handleStop(req, res) {
+  suppressAutoSwitch = true;
   const stopped = {
     deepstream: stopProcess('deepstream'),
     mediamtx: stopProcess('mediamtx'),
     led_notifier: stopProcess('led_notifier')
   };
+  stopAllDeepstream();
+  stopAllMediamtx();
+  setTimeout(() => {
+    suppressAutoSwitch = false;
+  }, 1000);
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ ok: true, stopped }));
+}
+
+function handleNativeOn(req, res) {
+  nativeMode = true;
+  suppressAutoSwitch = true;
+  stopAllMediamtx();
+  stopAllDeepstream();
+  const stopped = { mediamtx: 'stopped', deepstream: 'stopped' };
+  const started = startProcess(
+    'deepstream',
+    path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
+    ['-c', CONFIG_NATIVE],
+    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+  );
+  setTimeout(() => {
+    suppressAutoSwitch = false;
+  }, 1000);
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ ok: true, nativeMode, stopped, started }));
+}
+
+function handleNativeOff(req, res) {
+  nativeMode = false;
+  suppressAutoSwitch = true;
+  stopAllDeepstream();
+  const stopped = 'stopped';
+  const started = startProcess(
+    'deepstream',
+    path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
+    ['-c', CONFIG_WEB],
+    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+  );
+  waitForPort(8554, '127.0.0.1', 15000)
+    .then(() => {
+      const startedMediamtx = startProcess(
+        'mediamtx',
+        path.join(BACKEND_DIR, 'mediamtx', 'mediamtx'),
+        [path.join(BACKEND_DIR, 'mediamtx', 'mediamtx.yml')],
+        { cwd: path.join(BACKEND_DIR, 'mediamtx') }
+      );
+      setTimeout(() => {
+        suppressAutoSwitch = false;
+      }, 1000);
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: true, nativeMode, stopped, started, startedMediamtx }));
+    })
+    .catch(() => {
+      setTimeout(() => {
+        suppressAutoSwitch = false;
+      }, 1000);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, nativeMode, stopped, started, error: 'failed_waiting_for_rtsp' }));
+    });
+}
+
+function switchToWebModeFromNative() {
+  nativeMode = false;
+  if (processes.deepstream) return;
+  startProcess(
+    'deepstream',
+    path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
+    ['-c', CONFIG_WEB],
+    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+  );
+  waitForPort(8554, '127.0.0.1', 15000)
+    .then(() => {
+      startProcess(
+        'mediamtx',
+        path.join(BACKEND_DIR, 'mediamtx', 'mediamtx'),
+        [path.join(BACKEND_DIR, 'mediamtx', 'mediamtx.yml')],
+        { cwd: path.join(BACKEND_DIR, 'mediamtx') }
+      );
+    })
+    .catch(() => {});
 }
 
 function serveStatic(req, res) {
