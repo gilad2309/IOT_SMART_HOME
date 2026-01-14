@@ -11,9 +11,11 @@ interface Props {
 
 export function VideoPane({ active, personCount, onStatusChange }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const frameRef = useRef<HTMLDivElement | null>(null);
   const pcRef = useRef<RTCPeerConnection | null>(null);
   const [status, setStatus] = useState<StreamState>('idle');
   const [message, setMessage] = useState<string>('Waiting to start');
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const reconnectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const connecting = useRef<boolean>(false);
   const fallbackVideoSrc = '/camera.mp4';
@@ -78,11 +80,40 @@ export function VideoPane({ active, personCount, onStatusChange }: Props) {
     };
   }, [active]);
 
+  useEffect(() => {
+    const handleChange = () => {
+      setIsFullscreen(document.fullscreenElement === frameRef.current);
+    };
+    document.addEventListener('fullscreenchange', handleChange);
+    return () => document.removeEventListener('fullscreenchange', handleChange);
+  }, []);
+
   const showPlaceholder = status !== 'streaming';
+  const handleFullscreen = () => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    const doc = document as Document & {
+      webkitExitFullscreen?: () => Promise<void>;
+    };
+    const elem = frame as HTMLElement & {
+      webkitRequestFullscreen?: () => Promise<void>;
+    };
+    if (document.fullscreenElement === frame) {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      } else if (doc.webkitExitFullscreen) {
+        doc.webkitExitFullscreen();
+      }
+    } else if (frame.requestFullscreen) {
+      frame.requestFullscreen().catch(() => {});
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+  };
 
   return (
     <div className="video-pane">
-      <div className="video-frame">
+      <div className="video-frame" ref={frameRef}>
         <video ref={videoRef} autoPlay playsInline className={showPlaceholder ? 'hidden' : ''} />
         {showPlaceholder && (
           <div className="placeholder">
@@ -100,8 +131,17 @@ export function VideoPane({ active, personCount, onStatusChange }: Props) {
           <span className="dot" />
           {status === 'streaming' ? 'Live' : 'Standby'}
         </div>
-        <div className="count-pill">Persons: {personCount ?? 0}</div>
-        <div className="status-chip">{message}</div>
+        <div className="top-right-controls">
+          <div className="count-pill">Persons: {personCount ?? 0}</div>
+          <button
+            type="button"
+            className={`fullscreen-toggle ${isFullscreen ? 'exit' : ''}`}
+            onClick={handleFullscreen}
+            aria-label={isFullscreen ? 'Exit full screen' : 'Enter full screen'}
+          >
+            <span className="fullscreen-icon" aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </div>
   );

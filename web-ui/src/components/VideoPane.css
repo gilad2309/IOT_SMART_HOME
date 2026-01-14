@@ -67,22 +67,91 @@
 }
 
 .count-pill {
-  left: auto;
-  right: 14px;
+  position: static;
   background: rgba(20, 26, 36, 0.9);
 }
 
-.status-chip {
+.top-right-controls {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.7);
-  color: var(--muted);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fullscreen-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(20, 26, 36, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.fullscreen-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.fullscreen-toggle:active {
+  transform: translateY(0);
+}
+
+.fullscreen-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.fullscreen-icon::before,
+.fullscreen-icon::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 2px solid var(--text);
+  border-radius: 2px;
+}
+
+.fullscreen-icon::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.fullscreen-icon::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.fullscreen-toggle.exit .fullscreen-icon::before {
+  top: 1px;
+  left: 1px;
+  width: 6px;
+  height: 6px;
+  border-left: none;
+  border-top: none;
+  border-right: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+}
+
+.fullscreen-toggle.exit .fullscreen-icon::after {
+  bottom: 1px;
+  right: 1px;
+  width: 6px;
+  height: 6px;
+  border-right: none;
+  border-bottom: none;
+  border-left: 2px solid var(--text);
+  border-top: 2px solid var(--text);
 }
 
 .placeholder {
