@@ -341,7 +341,8 @@ startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_ma
     DDB_ENABLED: ddbFlag || '0',
     AWS_REGION: process.env.AWS_REGION,
     DDB_METRICS_TABLE: process.env.DDB_METRICS_TABLE || 'metrics',
-    DDB_ALARMS_TABLE: process.env.DDB_ALARMS_TABLE || 'alarms'
+    DDB_ALARMS_TABLE: process.env.DDB_ALARMS_TABLE || 'alarms',
+    PYTHONUNBUFFERED: '1'
   }
 });
 

@@ -43,6 +43,8 @@ TRIGGER_TEXT = os.getenv("TRIGGER_TEXT", "run").strip().lower()
 START_PIPELINE_TEXT = os.getenv("START_PIPELINE_TEXT", "start pipeline").strip().lower()
 PIPELINE_API_URL = os.getenv("PIPELINE_API_URL", "http://127.0.0.1:8081/api/start")
 RUN_COMMAND = os.getenv("RUN_COMMAND", "npm run serve -- --no-ddb")
+RUN_DB_TEXT = os.getenv("RUN_DB_TEXT", "run -db").strip().lower()
+RUN_DB_COMMAND = os.getenv("RUN_DB_COMMAND", "npm run serve -- --ddb")
 COMMAND_CWD = os.getenv(
     "COMMAND_CWD",
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")),
@@ -113,6 +115,29 @@ def start_command():
             env.pop(key, None)
     current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env)
 
+def start_db_command():
+    global current_process
+    if current_process and current_process.poll() is None:
+        print("[command-listener] command already running")
+        return
+
+    args = shlex.split(RUN_DB_COMMAND)
+    print(f"[command-listener] starting: {RUN_DB_COMMAND}")
+    env = os.environ.copy()
+    if env.get("KEEP_MQTT_ENV_FOR_COMMAND", "0") != "1":
+        for key in (
+            "MQTT_URL",
+            "MQTT_HOST",
+            "MQTT_PORT",
+            "MQTT_TLS_ENABLED",
+            "MQTT_CA_CERT",
+            "MQTT_CLIENT_CERT",
+            "MQTT_CLIENT_KEY",
+            "MQTT_TLS_INSECURE",
+        ):
+            env.pop(key, None)
+    current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env)
+
 
 def on_connect(client, userdata, flags, rc, properties=None):
     tls_label = "tls" if connect_tls else "plain"
@@ -133,6 +158,9 @@ def on_message(client, userdata, msg):
     last_trigger_at = now
     if normalized == TRIGGER_TEXT:
         start_command()
+        return
+    if normalized == RUN_DB_TEXT:
+        start_db_command()
         return
     if normalized == START_PIPELINE_TEXT:
         start_pipeline()
