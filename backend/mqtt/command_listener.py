@@ -9,6 +9,7 @@ import subprocess
 import time
 import urllib.request
 from typing import Optional
+import signal
 
 import paho.mqtt.client as mqtt
 
@@ -45,6 +46,7 @@ PIPELINE_API_URL = os.getenv("PIPELINE_API_URL", "http://127.0.0.1:8081/api/star
 RUN_COMMAND = os.getenv("RUN_COMMAND", "npm run serve -- --no-ddb")
 RUN_DB_TEXT = os.getenv("RUN_DB_TEXT", "run -db").strip().lower()
 RUN_DB_COMMAND = os.getenv("RUN_DB_COMMAND", "npm run serve -- --ddb")
+STOP_TEXT = os.getenv("STOP_TEXT", "stop").strip().lower()
 COMMAND_CWD = os.getenv(
     "COMMAND_CWD",
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")),
@@ -113,7 +115,7 @@ def start_command():
             "MQTT_TLS_INSECURE",
         ):
             env.pop(key, None)
-    current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env)
+    current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env, start_new_session=True)
 
 def start_db_command():
     global current_process
@@ -136,7 +138,23 @@ def start_db_command():
             "MQTT_TLS_INSECURE",
         ):
             env.pop(key, None)
-    current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env)
+    current_process = subprocess.Popen(args, cwd=COMMAND_CWD, env=env, start_new_session=True)
+
+
+def stop_command():
+    global current_process
+    if not current_process or current_process.poll() is not None:
+        print("[command-listener] no command running")
+        return
+    try:
+        os.killpg(current_process.pid, signal.SIGTERM)
+        current_process.wait(timeout=10)
+    except Exception:
+        try:
+            os.killpg(current_process.pid, signal.SIGKILL)
+        except Exception:
+            pass
+    current_process = None
 
 
 def on_connect(client, userdata, flags, rc, properties=None):
@@ -161,6 +179,9 @@ def on_message(client, userdata, msg):
         return
     if normalized == RUN_DB_TEXT:
         start_db_command()
+        return
+    if normalized == STOP_TEXT:
+        stop_command()
         return
     if normalized == START_PIPELINE_TEXT:
         start_pipeline()
