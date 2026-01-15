@@ -23,10 +23,10 @@ npm run build
 cd ..
 ```
 
-## Run (single command + button)
+## Run (manual, single command + button)
 ```bash
 cd ~/deepstream/deepstream-7.1/sources/apps/sample_apps/deepstream-test5
-sudo npm run serve
+./scripts/run-no-ddb.sh
 ```
 - Opens UI at http://127.0.0.1:8081
 - `npm run serve` starts the server, Data Manager, relay emulator, and Jetson telemetry publisher (GPU usage + temperature).
@@ -36,7 +36,12 @@ sudo npm run serve
   - `python3 backend/mqtt/person_led_mqtt.py` (subscribes to `actuator/led_toggle`, blinks LED)
 - Click **Stop** to terminate all.
 
-Defaults you can override via env before `npm run serve`:
+Manual DB mode:
+```bash
+./scripts/run-ddb.sh
+```
+
+Defaults you can override via `/etc/jetson-iot/command_listener.env`:
 - `MQTT_URL` (Data Manager, default mqtt://mqtt-dashboard.com:1883)
 - `MQTT_HOST`/`MQTT_PORT` (telemetry + LED, default mqtt-dashboard.com/1883)
 - `UI_METRICS_PREFIX` (default ui/metrics), `UI_ALARM_TOPIC` (default ui/alarms)
@@ -46,12 +51,6 @@ Defaults you can override via env before `npm run serve`:
 - `RELAY_ON_LEVEL` (default warning) controls when the Data Manager turns the relay on
 - `DDB_ENABLED` (set to 1 to enable), `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`,
   `DDB_METRICS_TABLE`, `DDB_ALARMS_TABLE`
-
-Enable/disable DynamoDB via flags:
-```bash
-npm run serve -- --ddb
-npm run serve -- --no-ddb
-```
 
 ## Native vs Web mode
 - **Switch to Native** stops MediaMTX and restarts DeepStream with the native config so only the local DeepStream window is active.
@@ -65,6 +64,19 @@ npm run serve -- --no-ddb
 - MQTT broker: Mosquitto (`systemctl status mosquitto`) or a public broker
 - LED notifier: `sudo MQTT_HOST=127.0.0.1 MQTT_PORT=1883 LED_TOGGLE_TOPIC=actuator/led_toggle LED_PIN=7 python3 backend/mqtt/person_led_mqtt.py`
  - Data Manager: `python3 backend/mqtt/data_manager.py`
+
+## Run via Telegram (commands)
+The Telegram flow starts the server and pipeline on demand via AWS IoT Core.
+
+Commands:
+- `run` → `npm run serve -- --no-ddb`
+- `run -db` → `npm run serve -- --ddb`
+- `start pipeline` → same as UI Start Pipeline
+- `stop` → stops the running server process
+
+Prereqs:
+- `jetson-command-listener.service` enabled and running.
+- `/etc/jetson-iot/command_listener.env` filled with AWS/MQTT settings.
 
 ## Quick checks
 - RTSP sanity: `ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,profile,has_b_frames -of default=nw=1 rtsp://127.0.0.1:8554/ds-test`
