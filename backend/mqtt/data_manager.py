@@ -25,6 +25,10 @@ DDB_ENABLED = os.getenv("DDB_ENABLED", "0") == "1"
 DDB_REGION = os.getenv("AWS_REGION")
 DDB_METRICS_TABLE = os.getenv("DDB_METRICS_TABLE", "metrics")
 DDB_ALARMS_TABLE = os.getenv("DDB_ALARMS_TABLE", "alarms")
+DDB_HEARTBEAT_PATH = os.getenv(
+    "DDB_HEARTBEAT_PATH",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "ddb_heartbeat.json")),
+)
 
 SOURCE_TOPICS = {
     "people": "deepstream/person_count",
@@ -47,6 +51,16 @@ person_accumulator = {
 ddb_resource = None
 ddb_tables = {}
 ddb_failed = False
+
+
+def record_ddb_success(source: str):
+    try:
+        os.makedirs(os.path.dirname(DDB_HEARTBEAT_PATH), exist_ok=True)
+        payload = json.dumps({"source": source, "ts": int(time.time() * 1000)})
+        with open(DDB_HEARTBEAT_PATH, "w", encoding="utf-8") as handle:
+            handle.write(payload)
+    except Exception:
+        return
 
 
 def parse_mqtt_url(url: str) -> tuple[str, int]:
@@ -186,6 +200,7 @@ def persist_metric(metric: str, payload: str):
                 item = {"metric": metric, "ts": int(data.get("ts", int(time.time() * 1000)))}
                 item.update(data)
                 ddb_tables["metrics"].put_item(Item=normalize_for_ddb(item))
+                record_ddb_success("metrics")
             except Exception as exc:
                 print(f"[data-manager] ddb write failed: {exc}")
 
@@ -203,6 +218,7 @@ def persist_alarm(payload: str):
                 item = {"type": data.get("type", "alarm"), "ts": int(data.get("ts", int(time.time() * 1000)))}
                 item.update(data)
                 ddb_tables["alarms"].put_item(Item=normalize_for_ddb(item))
+                record_ddb_success("alarms")
             except Exception as exc:
                 print(f"[data-manager] ddb write failed: {exc}")
 
@@ -225,6 +241,9 @@ def on_message(client, userdata, msg):
             return
         person_accumulator["sum"] += count
         person_accumulator["count"] += 1
+        # Toggle LED immediately based on the latest person count,
+        # while keeping the averaged UI metric cadence unchanged.
+        maybe_toggle_led(client, int(count))
         return
 
     if msg.topic == SOURCE_TOPICS["gpu"]:

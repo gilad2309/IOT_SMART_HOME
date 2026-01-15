@@ -26,6 +26,15 @@ const pipelineProcesses = new Set(['deepstream', 'mediamtx', 'led_notifier']);
 let nativeMode = false;
 let suppressAutoSwitch = false;
 
+function getDeepstreamEnv() {
+  return {
+    MQTT_HOST: process.env.DEEPSTREAM_MQTT_HOST || 'mqtt-dashboard.com',
+    MQTT_PORT: process.env.DEEPSTREAM_MQTT_PORT || '1883',
+    MQTT_TOPIC: process.env.DEEPSTREAM_MQTT_TOPIC || 'deepstream/person_count',
+    MQTT_CLIENT_ID: process.env.DEEPSTREAM_MQTT_CLIENT_ID || undefined
+  };
+}
+
 function parseFlags(argv) {
   return new Set(argv.filter((arg) => arg.startsWith('--')));
 }
@@ -102,15 +111,16 @@ function handleStart(req, res) {
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
     ['-c', nativeMode ? CONFIG_NATIVE : CONFIG_WEB],
     {
-      cwd: path.join(BACKEND_DIR, 'deepstream')
+      cwd: path.join(BACKEND_DIR, 'deepstream'),
+      env: getDeepstreamEnv()
     }
   );
 
   const finish = () => {
     results.led_notifier = startProcess('led_notifier', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'person_led_mqtt.py')], {
       env: {
-        MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
-        MQTT_PORT: process.env.MQTT_PORT || '1883',
+        MQTT_HOST: process.env.LED_MQTT_HOST || 'mqtt-dashboard.com',
+        MQTT_PORT: process.env.LED_MQTT_PORT || '1883',
         LED_TOGGLE_TOPIC: process.env.LED_TOGGLE_TOPIC || 'actuator/led_toggle',
         LED_PIN: process.env.LED_PIN || '7',
         LED_HOLD_SECONDS: process.env.LED_HOLD_SECONDS || '5'
@@ -147,7 +157,23 @@ function handleStatus(req, res) {
       .map(([name, child]) => [name, { pid: child.pid }])
   );
   const ddbEnabled = ddbFlag === '1';
-  const cloudStatus = ddbEnabled ? (processes.data_manager ? 'on' : 'error') : 'off';
+  let cloudStatus = 'off';
+  if (ddbEnabled) {
+    if (!processes.data_manager) {
+      cloudStatus = 'error';
+    } else {
+      const ttlSeconds = Number(process.env.DDB_HEARTBEAT_TTL_SECONDS || '30');
+      const heartbeatPath =
+        process.env.DDB_HEARTBEAT_PATH || path.join(BACKEND_DIR, 'data', 'ddb_heartbeat.json');
+      try {
+        const stat = fs.statSync(heartbeatPath);
+        const ageMs = Date.now() - stat.mtimeMs;
+        cloudStatus = ageMs <= ttlSeconds * 1000 ? 'on' : 'error';
+      } catch {
+        cloudStatus = 'error';
+      }
+    }
+  }
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(
     JSON.stringify({
@@ -228,7 +254,7 @@ function handleNativeOn(req, res) {
     'deepstream',
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
     ['-c', CONFIG_NATIVE],
-    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+    { cwd: path.join(BACKEND_DIR, 'deepstream'), env: getDeepstreamEnv() }
   );
   setTimeout(() => {
     suppressAutoSwitch = false;
@@ -246,7 +272,7 @@ function handleNativeOff(req, res) {
     'deepstream',
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
     ['-c', CONFIG_WEB],
-    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+    { cwd: path.join(BACKEND_DIR, 'deepstream'), env: getDeepstreamEnv() }
   );
   waitForPort(8554, '127.0.0.1', 15000)
     .then(() => {
@@ -278,7 +304,7 @@ function switchToWebModeFromNative() {
     'deepstream',
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
     ['-c', CONFIG_WEB],
-    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+    { cwd: path.join(BACKEND_DIR, 'deepstream'), env: getDeepstreamEnv() }
   );
   waitForPort(8554, '127.0.0.1', 15000)
     .then(() => {
@@ -331,7 +357,10 @@ server.listen(PORT, () => {
 // Start data manager immediately on server launch.
 startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_manager.py')], {
   env: {
-    MQTT_URL: process.env.MQTT_URL || 'mqtt://mqtt-dashboard.com:1883',
+    MQTT_URL:
+      process.env.DATA_MANAGER_MQTT_URL ||
+      process.env.MQTT_URL ||
+      'mqtt://mqtt-dashboard.com:1883',
     UI_METRICS_PREFIX: process.env.UI_METRICS_PREFIX || 'ui/metrics',
     UI_ALARM_TOPIC: process.env.UI_ALARM_TOPIC || 'ui/alarms',
     TEMP_WARN_C: process.env.TEMP_WARN_C || '70',
@@ -342,6 +371,8 @@ startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_ma
     AWS_REGION: process.env.AWS_REGION,
     DDB_METRICS_TABLE: process.env.DDB_METRICS_TABLE || 'metrics',
     DDB_ALARMS_TABLE: process.env.DDB_ALARMS_TABLE || 'alarms',
+    DDB_HEARTBEAT_PATH:
+      process.env.DDB_HEARTBEAT_PATH || path.join(BACKEND_DIR, 'data', 'ddb_heartbeat.json'),
     PYTHONUNBUFFERED: '1'
   }
 });
@@ -349,11 +380,12 @@ startProcess('data_manager', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'data_ma
 // Start telemetry immediately on server launch.
 startProcess('telemetry', 'python3', [path.join(BACKEND_DIR, 'mqtt', 'jetson_telemetry.py')], {
   env: {
-    MQTT_HOST: process.env.MQTT_HOST || 'mqtt-dashboard.com',
-    MQTT_PORT: process.env.MQTT_PORT || '1883',
+    MQTT_HOST: process.env.TELEMETRY_MQTT_HOST || process.env.MQTT_HOST || 'mqtt-dashboard.com',
+    MQTT_PORT: process.env.TELEMETRY_MQTT_PORT || process.env.MQTT_PORT || '1883',
     MQTT_CLIENT_ID: process.env.MQTT_CLIENT_ID || 'jetson-telemetry',
     MQTT_QOS: process.env.MQTT_QOS || '0',
-    TELEMETRY_INTERVAL_SECONDS: process.env.TELEMETRY_INTERVAL_SECONDS || '5'
+    TELEMETRY_INTERVAL_SECONDS: process.env.TELEMETRY_INTERVAL_SECONDS || '5',
+    PYTHONUNBUFFERED: '1'
   }
 });
 
