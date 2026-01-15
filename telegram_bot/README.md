@@ -1,9 +1,12 @@
-# Telegram Bot Alerts (AWS Lambda + DynamoDB Streams)
+# Telegram Bot Alerts + Commands (AWS Lambda + DynamoDB Streams + AWS IoT)
 
-This folder contains the Lambda code and setup steps to send Telegram alerts when a new `person_count` record is written to DynamoDB.
+This folder contains Lambda code and setup steps for two Telegram features:
+- Alerts when a new `person_count` record is written to DynamoDB.
+- Command control that publishes actions to AWS IoT Core for the Jetson.
 
 ## Files
-- `lambda_function.py`: Lambda handler code to post Telegram messages.
+- `lambda_function.py`: DynamoDB Streams handler that posts Telegram alerts.
+- `command_lambda_function.py`: Telegram webhook handler that publishes commands to AWS IoT Core.
 - `README.md`: Setup instructions (this file).
 
 ## Prerequisites
@@ -67,6 +70,60 @@ If you get a permissions error, attach the policy **AWSLambdaDynamoDBExecutionRo
 
 ## 9) Test
 Trigger a person count update (count >= 1). You should receive a Telegram message.
+
+---
+
+# Telegram Command Lambda (AWS IoT Core)
+
+This Lambda receives Telegram messages via webhook and publishes an MQTT message to the AWS IoT Core broker (your account’s IoT endpoint). The Jetson connects to the same AWS IoT Core MQTT broker, subscribes to the command topic, and performs actions when it receives those messages.
+
+
+## Commands
+- `run` → starts `npm run serve -- --no-ddb`
+- `run -db` → starts `npm run serve -- --ddb`
+- `start pipeline` → same as UI Start Pipeline
+- `stop` → stops the running server process
+
+## 1) Create the Lambda function
+1. AWS Console → Lambda → **Create function**.
+2. **Author from scratch**.
+3. Name: `telegram-command-handler`.
+4. Runtime: **Python 3.11**.
+
+## 2) Paste the Lambda code
+1. Open the function → **Code** tab.
+2. Replace the file contents with `telegram_bot/command_lambda_function.py`.
+3. **Deploy**.
+
+## 3) Set environment variables
+Lambda → **Configuration → Environment variables**:
+- `ALLOWED_CHAT_ID` = your chat id (string)
+- `IOT_ENDPOINT` = your AWS IoT Core endpoint (e.g., `xxxxxxxx-ats.iot.eu-north-1.amazonaws.com`)
+- `COMMAND_TOPIC` = `devices/Jetson/commands` (or your custom topic)
+
+## 4) Add IAM permissions
+Attach a policy to the Lambda role:
+```json
+{
+  "Effect": "Allow",
+  "Action": ["iot:Publish"],
+  "Resource": "arn:aws:iot:eu-north-1:YOUR_ACCOUNT_ID:topic/devices/Jetson/commands"
+}
+```
+
+## 5) Create a Function URL
+1. Lambda → **Configuration → Function URL** → **Create**.
+2. Auth type: **NONE**.
+3. Save the Function URL.
+
+## 6) Set the Telegram webhook
+Open in a browser:
+```
+https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook?url=<YOUR_FUNCTION_URL>
+```
+
+## 7) Test
+Send `run` or `start pipeline` to your bot. The Jetson should respond via MQTT.
 
 ## Troubleshooting
 - Check Lambda logs: **Monitor → View CloudWatch logs**.
