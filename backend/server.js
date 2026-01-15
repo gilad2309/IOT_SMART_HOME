@@ -101,7 +101,9 @@ function handleStart(req, res) {
     'deepstream',
     path.join(BACKEND_DIR, 'deepstream', 'deepstream-test5-app'),
     ['-c', nativeMode ? CONFIG_NATIVE : CONFIG_WEB],
-    { cwd: path.join(BACKEND_DIR, 'deepstream') }
+    {
+      cwd: path.join(BACKEND_DIR, 'deepstream')
+    }
   );
 
   const finish = () => {

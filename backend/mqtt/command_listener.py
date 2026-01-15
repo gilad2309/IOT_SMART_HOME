@@ -7,6 +7,7 @@ import os
 import shlex
 import subprocess
 import time
+import urllib.request
 from typing import Optional
 
 import paho.mqtt.client as mqtt
@@ -39,6 +40,8 @@ MQTT_CLIENT_KEY = os.getenv("MQTT_CLIENT_KEY")
 MQTT_TLS_INSECURE = os.getenv("MQTT_TLS_INSECURE", "0") == "1"
 COMMAND_TOPIC = os.getenv("COMMAND_TOPIC", "jetson/command")
 TRIGGER_TEXT = os.getenv("TRIGGER_TEXT", "run").strip().lower()
+START_PIPELINE_TEXT = os.getenv("START_PIPELINE_TEXT", "start pipeline").strip().lower()
+PIPELINE_API_URL = os.getenv("PIPELINE_API_URL", "http://127.0.0.1:8081/api/start")
 RUN_COMMAND = os.getenv("RUN_COMMAND", "npm run serve -- --no-ddb")
 COMMAND_CWD = os.getenv(
     "COMMAND_CWD",
@@ -124,14 +127,26 @@ def on_message(client, userdata, msg):
         return
 
     normalized = text.strip().lower()
-    if normalized != TRIGGER_TEXT:
-        return
-
     now = time.time()
     if now - last_trigger_at < COOLDOWN_SECONDS:
         return
     last_trigger_at = now
-    start_command()
+    if normalized == TRIGGER_TEXT:
+        start_command()
+        return
+    if normalized == START_PIPELINE_TEXT:
+        start_pipeline()
+        return
+
+
+def start_pipeline():
+    try:
+        req = urllib.request.Request(PIPELINE_API_URL, method="POST")
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            body = resp.read().decode("utf-8", errors="ignore")
+        print(f"[command-listener] start pipeline: {resp.status} {body[:200]}")
+    except Exception as exc:
+        print(f"[command-listener] start pipeline failed: {exc}")
 
 
 def main():
